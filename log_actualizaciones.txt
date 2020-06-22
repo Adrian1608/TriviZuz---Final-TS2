@@ -5,3 +5,5 @@ yo empiezo. Y si son varias actualizaciones un mismo día, debe ponerse en orden
 más nuevas van más abajo:B
 
 22/06/2020(Adrián): Se creó el archivo log_actualizaciones
+
+Y ahora siguen ustedes :B
