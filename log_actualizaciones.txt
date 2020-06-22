@@ -1,0 +1,7 @@
+Bueeeno chicos, esta notita va a servir temporalmente para registrar todos los cambios que hacen.
+Todos tienen la obligacion de escribir aqui la fecha, su nombre y lo que han hecho en un x momento
+Igual github tiene eso previsto, pero para nosotros esto servirá también para verlo directamente:B asi que
+yo empiezo. Y si son varias actualizaciones un mismo día, debe ponerse en orden, más antiguas van más arriba
+más nuevas van más abajo:B
+
+22/06/2020(Adrián): Se creó el archivo log_actualizaciones
