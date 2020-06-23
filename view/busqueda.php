@@ -18,17 +18,17 @@
     <link rel="icon" href="../img/3vzuz icono.ico">
 </head>
 
-<header>
+<header id="superior">
     <div>Sobre nosotros</div>
     <div>Videojuegos</div>
     <div>Equipos</div>
     <div>Ofertas</div>
-    <div>
+    <nav>
         <form method="post" action="busqueda.php">
             <input type="text" placeholder="Buscar..." name="busqueda_superior">
             <button type="submit" value="Buscar">Buscar</button>
         </form>
-    </div>
+    </nav>
     <form method="post" action="busqueda.php">
     <div>
             <input type="text" placeholder="Usuario" name="usuario"><br>
@@ -41,13 +41,40 @@
         <button type="submit" value="registrar">Registrarse</button>
         </form>
     </div>
-</header>
-
-
-<form method="post" action="busqueda.php">
-    <input type="text" placeholder="Buscar..." name="busqueda_limitada">
-    <button type="submit" value="Buscar">Buscar</button>
+    <nav>
+        <form method="post" action="busqueda.php">
+            <input type="text" placeholder="Buscar..." name="busqueda_limitada">
+            <button type="submit" value="Buscar">Buscar</button>
+    </nav>
 </form>
+</header>
+<header id="inferior">
+    <form>
+    <div><select>
+        <option name="ninguno">Ordenar por:</option>
+        <option name="precio">Precio</option>
+        <option name="lanzamiento">Fecha de lanzamiento</option>
+        <option name="llegada">Fecha de llegada</option>
+    </select></div>
+    <div><select>
+        <option name="ninguno">Categorías:</option>
+        <option name="accion">Accion</option>
+        <option name="aventura">Aventura</option>
+        <option name="estrategia">Estrategia</option>
+    </select></div>
+    <div>
+        <button type="submit" value="Mostrar">Mostrar</button>
+    </div>
+    </form>
+    <nav>
+        <form method="post" action="busqueda.php">
+            <input type="text" placeholder="Buscar...">
+            <button type="submit" value="Buscar">Buscar</button>
+        </form>
+    </nav>
+    
+</header>
+<p>Bienvenidos a 3VZuz : V de Veracidad, Velocidad y Vondad</p>
 
 <?php
     ##Esta será la página de búsqueda
