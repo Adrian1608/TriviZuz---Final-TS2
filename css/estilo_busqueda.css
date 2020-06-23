@@ -1,5 +1,46 @@
 div{
+    position:relative;
+    float:left;
+    margin-right:30px;
+    margin-top:5px;
+    margin:center;
+}
+
+header{
+    margin:center;
+    margin-top:5px;
+    margin-bottom:10px;
+}
+
+#superior{
+    background-color:lightblue;
+    height:60px;
+}
+
+nav{
     float:left;
     margin-right:30px;
     margin-bottom:5px;
+    margin-top:5px;
+}
+
+#inferior{
+    position:relative;
+    bottom:20px;
+    background-color:lightgreen;
+    height:60px;
+    margin-bottom:5px;
+}
+
+#inferior div{
+    top:10px;
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+#inferior nav{
+    position:relative;
+    top:10px;
+    margin-left: 80px;
+    margin-right: 80px;
 }
