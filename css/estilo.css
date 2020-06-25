@@ -1,3 +1,18 @@
+.cabecera{
+    padding:6px;
+    border-radius:10%;
+    margin:5px -0.5px;
+    border:2px black solid;
+}
+
+.elcabecera{
+    margin-left:15px;
+}
+
+.busqueda{
+    margin:0px 15px;
+}
+
 div{
     position:relative;
     float:left;
@@ -13,7 +28,7 @@ header{
 }
 
 #superior{
-    background-color:dimgray;
+    background-color:rgba(231,84,84);
     height:60px;
 }
 
@@ -27,7 +42,7 @@ nav{
 #inferior{
     position:relative;
     bottom:20px;
-    background-color:brown;
+    background-color:rgb(235,35,35);
     height:60px;
     margin-bottom:5px;
 }
@@ -60,12 +75,11 @@ a{
 footer{
     margin:0;
     text-align:center;
+    background-color:rgb(235,35,35);
 }
 
 table{
-    margin-top:40px;
-    margin-left:500px;
-    border:indianred 1px solid;
+    margin:40px 525px;
     float:left;
     border-collapse:collapse;
     background-color:cornflowerblue;
@@ -77,9 +91,29 @@ td{
 }
 
 .producto{
-    margin-top:10px;
-    margin-bottom:10px;
+    position:relative;
+    display:inline-block;
+    text-align:center;
+    margin: 10px 15px;
     border:black 1px solid;
     width:225px;
     height:225px;
+}
+
+body{
+    background-color:rgb(149,132,132);
+}
+
+.texto{
+    position:absolute;
+    text-align:center;
+}
+
+img{
+    position:relative;
+    width:225px;
+}
+
+img:hover{
+    opacity:0.30;
 }
