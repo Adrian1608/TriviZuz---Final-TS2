@@ -1,6 +1,6 @@
 <html>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="../css/estilo_busqueda.css">
+<link rel="stylesheet" type="text/css" href="../css/estilo1.css">
 <head>
 <?php
     if(isset($_POST["busqueda_limitada"])){
@@ -19,10 +19,10 @@
 </head>
 
 <header id="superior">
-    <div>Sobre nosotros</div>
-    <div>Videojuegos</div>
-    <div>Equipos</div>
-    <div>Ofertas</div>
+    <div><a href="busqueda.php">Sobre nosotros</a></div>
+    <div><a href="busqueda.php">Videojuegos</a></div>
+    <div><a href="busqueda.php">Equipos</a></div>
+    <div><a href="busqueda.php">Ofertas</a></div>
     <nav>
         <form method="post" action="busqueda.php">
             <input type="text" placeholder="Buscar..." name="busqueda_superior">
@@ -72,13 +72,46 @@
             <button type="submit" value="Buscar">Buscar</button>
         </form>
     </nav>
-    
 </header>
-<p>Bienvenidos a 3VZuz : V de Veracidad, Velocidad y Vondad</p>
+<body>
+    <?php $item_x_pagina = 30; ##Cada página tendrá 30 items para mostrar máximo jsjs ?>
+    <div class="producto">Fire Emblem Fates:Birthright</div>
+    <div class="producto">Fire Emblem Fates:Conquest</div>
+    <div class="producto">Fire Emblem Fates:Revelations</div>
+    <div class="producto">Fire Emblem Echoes</div>
+    <div class="producto">Fire Emblem Shadows Of Valentia</div>
+    <div class="producto">Fire Emblem Fates:Birthright</div>
+    <div class="producto">Fire Emblem Fates:Conquest</div>
+    <div class="producto">Fire Emblem Fates:Revelations</div>
+    <div class="producto">Fire Emblem Echoes</div>
+    <div class="producto">Fire Emblem Shadows Of Valentia</div>
+    <div class="producto">Fire Emblem Fates:Birthright</div>
+    <div class="producto">Fire Emblem Fates:Conquest</div>
+    <div class="producto">Fire Emblem Fates:Revelations</div>
+    <div class="producto">Fire Emblem Echoes</div>
+    <div class="producto">Fire Emblem Shadows Of Valentia</div>
+    <div class="producto">Fire Emblem Fates:Birthright</div>
+    <div class="producto">Fire Emblem Fates:Conquest</div>
+    <div class="producto">Fire Emblem Fates:Revelations</div>
+    <div class="producto">Fire Emblem Echoes</div>
+    <div class="producto">Fire Emblem Shadows Of Valentia</div>
+    <div class="producto">Fire Emblem Fates:Birthright</div>
+    <div class="producto">Fire Emblem Fates:Conquest</div>
+    <div class="producto">Fire Emblem Fates:Revelations</div>
+    <div class="producto">Fire Emblem Echoes</div>
+    <div class="producto">Fire Emblem Shadows Of Valentia</div>
+</body>
 
-<?php
-    ##Esta será la página de búsqueda
-?>
-
+<footer>
+<table>
+    <td><a href="busqueda.php"><<</a></td>
+    <td><a href="busqueda.php">1</a></td>
+    <td><a href="busqueda.php">2</a></td>
+    <td><a href="busqueda.php">3</a></td>
+    <td><a href="busqueda.php">4</a></td>
+    <td><a href="busqueda.php">5</a></td>
+    <td><a href="busqueda.php">>></a></td>
+</table>
+</footer>
 
 </html>
