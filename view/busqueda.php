@@ -1,6 +1,6 @@
 <html>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="../css/estilo1.css">
+<link rel="stylesheet" type="text/css" href="../css/estilo.css">
 <head>
 <?php
     if(isset($_POST["busqueda_limitada"])){
@@ -19,13 +19,15 @@
 </head>
 
 <header id="superior">
-    <div><a href="busqueda.php">Sobre nosotros</a></div>
-    <div><a href="busqueda.php">Videojuegos</a></div>
-    <div><a href="busqueda.php">Equipos</a></div>
-    <div><a href="busqueda.php">Ofertas</a></div>
+    <div class="elcabecera">
+    <div class="cabecera"><a href="busqueda.php">Sobre nosotros</a></div>
+    <div class="cabecera"><a href="busqueda.php">Videojuegos</a></div>
+    <div class="cabecera"><a href="busqueda.php">Equipos</a></div>
+    <div class="cabecera"><a href="busqueda.php">Ofertas</a></div>
+    </div> 
     <nav>
         <form method="post" action="busqueda.php">
-            <input type="text" placeholder="Buscar..." name="busqueda_superior">
+            <input class="busqueda" type="text" placeholder="Buscar..." name="busqueda_superior">
             <button type="submit" value="Buscar">Buscar</button>
         </form>
     </nav>
@@ -43,7 +45,7 @@
     </div>
     <nav>
         <form method="post" action="busqueda.php">
-            <input type="text" placeholder="Buscar..." name="busqueda_limitada">
+            <input class="busqueda" type="text" placeholder="Buscar..." name="busqueda_limitada">
             <button type="submit" value="Buscar">Buscar</button>
     </nav>
 </form>
@@ -75,34 +77,49 @@
 </header>
 <body>
     <?php $item_x_pagina = 30; ##Cada página tendrá 30 items para mostrar máximo jsjs ?>
-    <div class="producto">Fire Emblem Fates:Birthright</div>
-    <div class="producto">Fire Emblem Fates:Conquest</div>
-    <div class="producto">Fire Emblem Fates:Revelations</div>
-    <div class="producto">Fire Emblem Echoes</div>
-    <div class="producto">Fire Emblem Shadows Of Valentia</div>
-    <div class="producto">Fire Emblem Fates:Birthright</div>
-    <div class="producto">Fire Emblem Fates:Conquest</div>
-    <div class="producto">Fire Emblem Fates:Revelations</div>
-    <div class="producto">Fire Emblem Echoes</div>
-    <div class="producto">Fire Emblem Shadows Of Valentia</div>
-    <div class="producto">Fire Emblem Fates:Birthright</div>
-    <div class="producto">Fire Emblem Fates:Conquest</div>
-    <div class="producto">Fire Emblem Fates:Revelations</div>
-    <div class="producto">Fire Emblem Echoes</div>
-    <div class="producto">Fire Emblem Shadows Of Valentia</div>
-    <div class="producto">Fire Emblem Fates:Birthright</div>
-    <div class="producto">Fire Emblem Fates:Conquest</div>
-    <div class="producto">Fire Emblem Fates:Revelations</div>
-    <div class="producto">Fire Emblem Echoes</div>
-    <div class="producto">Fire Emblem Shadows Of Valentia</div>
-    <div class="producto">Fire Emblem Fates:Birthright</div>
-    <div class="producto">Fire Emblem Fates:Conquest</div>
-    <div class="producto">Fire Emblem Fates:Revelations</div>
-    <div class="producto">Fire Emblem Echoes</div>
-    <div class="producto">Fire Emblem Shadows Of Valentia</div>
+    <div class="producto"><a href="busqueda.php"><div class="texto">Fire Emblem Fates: Birthright</div>
+    <img src="../img/wp1844118-fire-emblem-wallpapers.jpg" width="225px" height="225px"/></a></div>
+
+    <div class="producto"><a href="busqueda.php"><div class="texto">Fire Emblem Fates: Conquest</div>
+    <img src="../img/wp1844120-fire-emblem-wallpapers.jpg" width="225px" height="225px"/></a></div>
+    
+    <div class="producto"><a href="busqueda.php"><div class="texto">Fire Emblem Fates: Revelations</div>
+    <img src="../img/wp1844129-fire-emblem-wallpapers.jpg" width="225px" height="225px"/></a></div>
+
+    <div class="producto"><a href="busqueda.php"><div class="texto">Fire Emblem Echoes</div>
+    <img src="../img/wp1844140-fire-emblem-wallpapers.png" width="225px" height="225px"/></a></div>
+
+    <div class="producto"><a href="busqueda.php"><div class="texto">Fire Emblem Fates Shadows of Valentia</div>
+    <img src="../img/wp1844153-fire-emblem-wallpapers.png" width="225px" height="225px"/></a></div>
+
+    <div class="producto"><a href="busqueda.php">Fire Emblem Fates:Birthright</a></div>
+    <div class="producto"><a href="busqueda.php">Fire Emblem Fates:Conquest</a></div>
+    <div class="producto"><a href="busqueda.php">Fire Emblem Fates:Revelations</a></div>
+    <div class="producto"><a href="busqueda.php">Fire Emblem Echoes</a></div>
+    <div class="producto"><a href="busqueda.php">Fire Emblem Shadows Of Valentia</a></div>
+    <div class="producto"><a href="busqueda.php">Fire Emblem Fates:Birthright</a></div>
+    <div class="producto"><a href="busqueda.php">Fire Emblem Fates:Conquest</a></div>
+    <div class="producto"><a href="busqueda.php">Fire Emblem Fates:Revelations</a></div>
+    <div class="producto"><a href="busqueda.php">Fire Emblem Echoes</a></div>
+    <div class="producto"><a href="busqueda.php">Fire Emblem Shadows Of Valentia</a></div>
+    <div class="producto"><a href="busqueda.php">Fire Emblem Fates:Birthright</a></div>
+    <div class="producto"><a href="busqueda.php">Fire Emblem Fates:Conquest</a></div>
+    <div class="producto"><a href="busqueda.php">Fire Emblem Fates:Revelations</a></div>
+    <div class="producto"><a href="busqueda.php">Fire Emblem Echoes</a></div>
+    <div class="producto"><a href="busqueda.php">Fire Emblem Shadows Of Valentia</a></div>
+    <div class="producto"><a href="busqueda.php">Fire Emblem Fates:Birthright</a></div>
+    <div class="producto"><a href="busqueda.php">Fire Emblem Fates:Conquest</a></div>
+    <div class="producto"><a href="busqueda.php">Fire Emblem Fates:Revelations</a></div>
+    <div class="producto"><a href="busqueda.php">Fire Emblem Echoes</a></div>
+    <div class="producto"><a href="busqueda.php">Fire Emblem Shadows Of Valentia</a></div>
+    <div class="producto"><a href="busqueda.php">Fire Emblem Fates:Birthright</a></div>
+    <div class="producto"><a href="busqueda.php">Fire Emblem Fates:Conquest</a></div>
+    <div class="producto"><a href="busqueda.php">Fire Emblem Fates:Revelations</a></div>
+    <div class="producto"><a href="busqueda.php">Fire Emblem Echoes</a></div>
+    <div class="producto"><a href="busqueda.php">Fire Emblem Shadows Of Valentia</a></div>
 </body>
 
-<footer>
+<footer></footer>
 <table>
     <td><a href="busqueda.php"><<</a></td>
     <td><a href="busqueda.php">1</a></td>
@@ -112,6 +129,5 @@
     <td><a href="busqueda.php">5</a></td>
     <td><a href="busqueda.php">>></a></td>
 </table>
-</footer>
 
 </html>
