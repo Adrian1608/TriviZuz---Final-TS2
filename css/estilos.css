@@ -90,12 +90,12 @@ table .paginacion{
     margin:40px 525px;
     float:left;
     border-collapse:collapse;
-    background-color:cornflowerblue;
 }
 
 td{
     border: slateblue 3px solid;
     padding:10px;
+    background-color:cornflowerblue;
 }
 
 .producto{
@@ -109,7 +109,7 @@ td{
 }
 
 body{
-    background-color:rgb(149,132,132);
+    background-color:rgb(255, 255, 255);
 }
 
 .texto{
