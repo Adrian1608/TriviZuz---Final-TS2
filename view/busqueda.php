@@ -1,12 +1,10 @@
 <html>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="../css/estilo.css">
+<link rel="stylesheet" type="text/css" href="../css/estilos.css">
 <head>
 <?php
-    if(isset($_POST["busqueda_limitada"])){
-        $busqueda = ': ' . $_POST["busqueda_limitada"];
-    }else if(isset($_POST["busqueda_superior"])){ ## Esta parte es para que el titulo diga por ejemplo "Buscando en TriviZuz: Zapatillas"
-        $busqueda = ': ' . $_POST["busqueda_superior"];
+    if(isset($_POST["busqueda"])){
+        $busqueda = ': ' . $_POST["busqueda"];
     }else{
         $busqueda = '';
     }
@@ -19,6 +17,7 @@
 </head>
 
 <header id="superior">
+    <img class="logo" src="../img/3vzuz_logo.png">
     <div class="elcabecera">
     <div class="cabecera"><a href="busqueda.php">Sobre nosotros</a></div>
     <div class="cabecera"><a href="busqueda.php">Videojuegos</a></div>
@@ -27,7 +26,7 @@
     </div> 
     <nav>
         <form method="post" action="busqueda.php">
-            <input class="busqueda" type="text" placeholder="Buscar..." name="busqueda_superior">
+            <input class="busqueda" type="text" placeholder="Buscar..." name="busqueda">
             <button type="submit" value="Buscar">Buscar</button>
         </form>
     </nav>
@@ -43,12 +42,6 @@
         <button type="submit" value="registrar">Registrarse</button>
         </form>
     </div>
-    <nav>
-        <form method="post" action="busqueda.php">
-            <input class="busqueda" type="text" placeholder="Buscar..." name="busqueda_limitada">
-            <button type="submit" value="Buscar">Buscar</button>
-    </nav>
-</form>
 </header>
 <header id="inferior">
     <form>
