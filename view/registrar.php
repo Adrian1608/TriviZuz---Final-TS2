@@ -1,3 +1,4 @@
+<html>
 <?php
 
 if(isset($_POST["busqueda"])){
@@ -42,3 +43,18 @@ if(isset($_POST["busqueda"])){
         </form>
     </div>
 </header>
+<body>
+    <h2>Registrar</h2>
+    <form method="post" action="registrar.php">
+        Nombre:<input name="nombre" type="text" placeholder="Nombre..." required><br><br>
+        Apellido:<input name="apellido" type="text" placeholder="Apellido..." required><br><br>
+        Telefono:<input name="telefono" type="text" placeholder="Telefono..."><br><br>
+        Usuario:<input name="usuario" type="text" placeholder="Usuario..." required><br><br>
+        Contraseña:<input name="contraseña" type="password" placeholder="" required><br><br>
+        <button type="submit" value="Registrar">Registrar</button>
+        OJO ESTO AUN NO FUNCIONA, aun falta vincular esto a la base de datos con el controller
+    </form>
+</body>
+
+
+</html>
