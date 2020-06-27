@@ -11,7 +11,7 @@ class ModelProducto{
     public function ModelRegistrarProducto($nom,$precio,$des,$rat,$tipo,$id_tienda,$img,$promocionado,$genero){
         try{
             $objeto = Conexion::singleton();
-            $query = $objeto -> prepare('INSERT INTO producto VALUES(?,?,?,?,?,?,?,?,?)');
+            $query = $objeto -> prepare('INSERT INTO producto VALUES(?,?,?,?,?,?,?,?,?,?)');
             $query -> bindParam(2,$nom);
             $query -> bindParam(3,$precio);
             $query -> bindParam(4,$des);
