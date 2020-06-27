@@ -113,7 +113,7 @@
 </body>
 
 <footer></footer>
-<table>
+<table class="paginacion">
     <td><a href="busqueda.php"><<</a></td>
     <td><a href="busqueda.php">1</a></td>
     <td><a href="busqueda.php">2</a></td>

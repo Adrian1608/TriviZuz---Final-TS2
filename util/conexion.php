@@ -5,7 +5,7 @@
         public function __construct()
         {
             try {
-                self::$instancia = new PDO('mysql:host=localhost;dbname=("Colocar nombre de la base de datos")','root', '');
+                self::$instancia = new PDO('mysql:host=localhost;dbname=trivizuz','root', '');
                 self::$instancia->exec("SET CHARACTER SET utf8");
             } catch (PDOException $e) {
                 print "Error!: " . $e->getMessage();
