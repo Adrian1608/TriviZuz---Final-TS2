@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-06-2020 a las 00:39:04
--- Versión del servidor: 10.4.8-MariaDB
--- Versión de PHP: 7.3.10
+-- Tiempo de generación: 27-06-2020 a las 20:13:58
+-- Versión del servidor: 10.4.11-MariaDB
+-- Versión de PHP: 7.4.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -33,6 +32,7 @@ CREATE TABLE `calificacion` (
   `id_producto` int(11) NOT NULL,
   `valor` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+-- Error leyendo datos de la tabla trivizuz.calificacion: #1064 - Algo está equivocado en su sintax cerca 'FROM `trivizuz`.`calificacion`' en la linea 1
 
 -- --------------------------------------------------------
 
@@ -44,10 +44,11 @@ CREATE TABLE `cliente` (
   `id_cliente` int(11) NOT NULL,
   `nombre_cliente` varchar(20) NOT NULL,
   `apellido_cliente` varchar(20) NOT NULL,
-  `direccion_cliente` varchar(50) NOT NULL,
   `telefono_cliente` int(15) NOT NULL,
-  `contraseña_cliente` varchar(20) NOT NULL
+  `contraseña_cliente` varchar(20) NOT NULL,
+  `nombre_usuario` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+-- Error leyendo datos de la tabla trivizuz.cliente: #1064 - Algo está equivocado en su sintax cerca 'FROM `trivizuz`.`cliente`' en la linea 1
 
 -- --------------------------------------------------------
 
@@ -100,8 +101,16 @@ CREATE TABLE `producto` (
   `tipo_producto` int(11) NOT NULL,
   `id_tienda` int(11) NOT NULL,
   `imagen_producto` varchar(140) NOT NULL,
-  `promocionado` int(1) NOT NULL
+  `promocionado` int(1) NOT NULL,
+  `genero_producto` char(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `producto`
+--
+
+INSERT INTO `producto` (`id_producto`, `nombre_producto`, `precio_producto`, `descripcion_producto`, `rating_producto`, `tipo_producto`, `id_tienda`, `imagen_producto`, `promocionado`, `genero_producto`) VALUES
+(3, 'Cuphead', '40', 'Cuphead is a classic run and gun action game heavily focused', 9, 0, 1, 'cuphead.jpg', 0, 'Aventura');
 
 -- --------------------------------------------------------
 
@@ -115,6 +124,13 @@ CREATE TABLE `tienda` (
   `direccion_tienda` varchar(50) NOT NULL,
   `telefono_tienda` int(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tienda`
+--
+
+INSERT INTO `tienda` (`id_tienda`, `nombre_tienda`, `direccion_tienda`, `telefono_tienda`) VALUES
+(1, 'La Anvorgueseria', 'Los Olivos - Alameda La Peña 454', 4971128);
 
 --
 -- Índices para tablas volcadas
@@ -188,13 +204,13 @@ ALTER TABLE `pedido`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `tienda`
 --
 ALTER TABLE `tienda`
-  MODIFY `id_tienda` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_tienda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas
