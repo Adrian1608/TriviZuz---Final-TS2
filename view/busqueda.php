@@ -19,7 +19,7 @@
 <header id="superior">
     <img class="logo" src="../img/3vzuz_logo.png">
     <div class="elcabecera">
-    <div class="cabecera"><a href="busqueda.php">Sobre nosotros</a></div>
+    <div class="cabecera"><a href="nosotros.php">Sobre nosotros</a></div>
     <div class="cabecera"><a href="busqueda.php">Videojuegos</a></div>
     <div class="cabecera"><a href="busqueda.php">Equipos</a></div>
     <div class="cabecera"><a href="busqueda.php">Ofertas</a></div>
