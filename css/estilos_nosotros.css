@@ -1,0 +1,123 @@
+.logo{
+    left:30px;
+    position:absolute;
+    width:60px;
+    height:60px;
+    opacity:initial;
+    filter: drop-shadow(0px 0px 3px rgba(255, 255, 255, 0.9));
+    
+    
+}
+
+.cabecera{
+    padding:6px;
+    border-radius:10%;
+    margin:5px -0.5px;
+    border:2px black solid;
+}
+
+.elcabecera{
+    margin-left:150px;
+}
+
+.busqueda{
+    margin:0px 15px;
+}
+
+div{
+    position:relative;
+    float:left;
+    margin-right:30px;
+    margin-top:5px;
+    margin:center;
+}
+
+header{
+    margin:center;
+    margin-top:5px;
+    margin-bottom:10px;
+    padding: 10px;
+}
+
+#superior{
+    background-color:rgba(231,84,84);
+    height:60px;
+    margin: 0;
+}
+
+nav{
+    float:left;
+    margin-right:30px;
+    margin-bottom:5px;
+    margin-top:5px;
+}
+
+a{
+    margin-left:0px;
+    margin-right:0px;
+    color:black;
+    text-align: center;
+    text-decoration:none;
+}
+
+footer{
+    margin:0;
+    text-align:center;
+    background-color:rgb(235,35,35);
+}
+
+table .paginacion{
+    margin:40px 525px;
+    float:left;
+    border-collapse:collapse;
+}
+
+td{
+    border: slateblue 3px solid;
+    padding:10px;
+    background-color:cornflowerblue;
+}
+
+body{
+    background-color:rgb(255, 255, 255);
+}
+
+img{
+    position:relative;
+    width:225px;
+}
+
+img:hover{
+    opacity:0.30;
+}
+.titu_nosotros {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 35px;
+    text-align: center;
+    margin: 0;
+    padding: 5px;
+}
+#nosotros {
+    background-color: #f8f3c7;
+    height: 180px;    
+}
+#mision {
+    background-color: #faeac1;
+    height: 180px;
+
+}
+#vision {
+    background-color: #fae4e8;
+    height: 180px;
+
+}
+#c1, #c2, #c3 {
+    text-align: center;
+    width: 400px;
+    padding-top: 10px;
+    margin: 0 auto;
+}
+.contenido {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
+}
