@@ -3,7 +3,7 @@
 
 <?php   include_once '../controller/controllerProducto.php';?>
 
-<link rel="stylesheet" type="text/css" href="../css/estilo1.css">
+<link rel="stylesheet" type="text/css" href="../css/estilos_busqueda.css">
 <head>
 <?php
     if(isset($_POST["busqueda"])){
@@ -63,13 +63,17 @@
         <option name="ninguno">Ordenar por:</option>
         <option name="precio">Precio</option>
         <option name="lanzamiento">Fecha de lanzamiento</option>
-        <option name="llegada">Fecha de llegada</option>
+        <option name="llegada">Rating</option>
+        <option name="estrategia">Tienda</option>
     </select></div>
     <div><select>
         <option name="ninguno">Categorías:</option>
         <option name="accion">Accion</option>
         <option name="aventura">Aventura</option>
         <option name="estrategia">Estrategia</option>
+        <option name="estrategia">RPG</option>
+        <option name="estrategia">Casuales</option>
+
     </select></div>
     <div>
         <button type="submit" value="Mostrar">Mostrar</button>
@@ -111,8 +115,6 @@
     ?>
 
 </body>
-
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 <footer></footer>
 <table class="paginacion">
