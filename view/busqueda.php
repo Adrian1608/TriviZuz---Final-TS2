@@ -3,7 +3,7 @@
 
 <?php   include_once '../controller/controllerProducto.php';?>
 
-<link rel="stylesheet" type="text/css" href="../css/estilo1.css">
+<link rel="stylesheet" type="text/css" href="../css/estilos_busqueda.css">
 <head>
 <?php
     if(isset($_POST["busqueda"])){
@@ -20,13 +20,6 @@
     <title>Buscando en Trivizuz<?php echo $busqueda;?> </title>
 
     <?php
-    
-    if(!$_GET){
-        header('Location:busqueda.php?pagina=1');
-    }
-    if($_GET['pagina']>=$productos_x_pagina){
-        header('Location:busqueda.php?pagina=1');
-    }
 
     $iniciar = ($_GET['pagina']-1)*$productos_x_pagina;
 
@@ -70,13 +63,17 @@
         <option name="ninguno">Ordenar por:</option>
         <option name="precio">Precio</option>
         <option name="lanzamiento">Fecha de lanzamiento</option>
-        <option name="llegada">Fecha de llegada</option>
+        <option name="llegada">Rating</option>
+        <option name="estrategia">Tienda</option>
     </select></div>
     <div><select>
         <option name="ninguno">Categorías:</option>
         <option name="accion">Accion</option>
         <option name="aventura">Aventura</option>
         <option name="estrategia">Estrategia</option>
+        <option name="estrategia">RPG</option>
+        <option name="estrategia">Casuales</option>
+
     </select></div>
     <div>
         <button type="submit" value="Mostrar">Mostrar</button>
@@ -97,53 +94,30 @@
         $cantidad_productos = $productos -> ControllerContarProductos();
 
         $paginas = $cantidad_productos / $productos_x_pagina;
+        $paginas = ceil($paginas);
+           
+        if(!$_GET){
+            header('Location:busqueda.php?pagina=1');
+        }
+
+        if($_GET['pagina'] > $paginas || $_GET['pagina'] <= 0){
+            header('Location:busqueda.php?pagina=1');
+        }
+    ?>
+
+    <?php
+
+        foreach($lista as $fila){
+            echo '<div class="producto"><a href="busqueda.php"><div class="texto">'.$fila[1].'</div>
+            <img src="../img/'. $fila[7].'" width="225px" height="225px"/></a></div>';
+        }
     
     ?>
 
-
-    <div class="producto"><a href="busqueda.php"><div class="texto">Fire Emblem Fates: Birthright</div>
-    <img src="../img/wp1844118-fire-emblem-wallpapers.jpg" width="225px" height="225px"/></a></div>
-
-    <div class="producto"><a href="busqueda.php"><div class="texto">Fire Emblem Fates: Conquest</div>
-    <img src="../img/wp1844120-fire-emblem-wallpapers.jpg" width="225px" height="225px"/></a></div>
-    
-    <div class="producto"><a href="busqueda.php"><div class="texto">Fire Emblem Fates: Revelations</div>
-    <img src="../img/wp1844129-fire-emblem-wallpapers.jpg" width="225px" height="225px"/></a></div>
-
-    <div class="producto"><a href="busqueda.php"><div class="texto">Fire Emblem Echoes</div>
-    <img src="../img/wp1844140-fire-emblem-wallpapers.png" width="225px" height="225px"/></a></div>
-
-    <div class="producto"><a href="busqueda.php"><div class="texto">Fire Emblem Fates Shadows of Valentia</div>
-    <img src="../img/wp1844153-fire-emblem-wallpapers.png" width="225px" height="225px"/></a></div>
-
-    <div class="producto"><a href="busqueda.php">Fire Emblem Fates:Birthright</a></div>
-    <div class="producto"><a href="busqueda.php">Fire Emblem Fates:Conquest</a></div>
-    <div class="producto"><a href="busqueda.php">Fire Emblem Fates:Revelations</a></div>
-    <div class="producto"><a href="busqueda.php">Fire Emblem Echoes</a></div>
-    <div class="producto"><a href="busqueda.php">Fire Emblem Shadows Of Valentia</a></div>
-    <div class="producto"><a href="busqueda.php">Fire Emblem Fates:Birthright</a></div>
-    <div class="producto"><a href="busqueda.php">Fire Emblem Fates:Conquest</a></div>
-    <div class="producto"><a href="busqueda.php">Fire Emblem Fates:Revelations</a></div>
-    <div class="producto"><a href="busqueda.php">Fire Emblem Echoes</a></div>
-    <div class="producto"><a href="busqueda.php">Fire Emblem Shadows Of Valentia</a></div>
-    <div class="producto"><a href="busqueda.php">Fire Emblem Fates:Birthright</a></div>
-    <div class="producto"><a href="busqueda.php">Fire Emblem Fates:Conquest</a></div>
-    <div class="producto"><a href="busqueda.php">Fire Emblem Fates:Revelations</a></div>
-    <div class="producto"><a href="busqueda.php">Fire Emblem Echoes</a></div>
-    <div class="producto"><a href="busqueda.php">Fire Emblem Shadows Of Valentia</a></div>
-    <div class="producto"><a href="busqueda.php">Fire Emblem Fates:Birthright</a></div>
-    <div class="producto"><a href="busqueda.php">Fire Emblem Fates:Conquest</a></div>
-    <div class="producto"><a href="busqueda.php">Fire Emblem Fates:Revelations</a></div>
-    <div class="producto"><a href="busqueda.php">Fire Emblem Echoes</a></div>
-    <div class="producto"><a href="busqueda.php">Fire Emblem Shadows Of Valentia</a></div>
-    <div class="producto"><a href="busqueda.php">Fire Emblem Fates:Birthright</a></div>
-    <div class="producto"><a href="busqueda.php">Fire Emblem Fates:Conquest</a></div>
-    <div class="producto"><a href="busqueda.php">Fire Emblem Fates:Revelations</a></div>
-    <div class="producto"><a href="busqueda.php">Fire Emblem Echoes</a></div>
-    <div class="producto"><a href="busqueda.php">Fire Emblem Shadows Of Valentia</a></div>
 </body>
 
 <footer></footer>
+
 <table class="paginacion">
     <td><a href="busqueda.php?pagina=<?php echo $_GET['pagina']-1?>"><<</a></td>
 
