@@ -118,11 +118,12 @@
     </article>
     <article id="bot">
         <article id="caracteristicas">
-            <form action="#">
             <p class="pro1" id="caracteristica_titu">Caracteristicas del Producto:</p>
             <p class="pro1" id="carac"><textarea name="carac" id="" cols="100" rows="15" readonly>#caracteristicas</textarea></p>
-            </article>
-            <article id="vendidas">
+        </article>
+        
+        <article id="vendidas">
+        <form action="#">
             <p id="titu_vendidas">Unidades vendidas:</p>
             <p id="vendidas">#</p>
             <select name="plat3" id="plat3">
@@ -132,7 +133,7 @@
             <option value="basic3">Distribuidores</option>
             </select>
             <input id="mostar2" type="submit" value="Mostar">
-            </form>
+        </form>
         </article>
     </article>
 </section>
