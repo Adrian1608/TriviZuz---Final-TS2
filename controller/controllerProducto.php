@@ -39,6 +39,16 @@ class ControllerProducto{
             throw $e;
         }
     }
+
+    public function ControllerDatosProducto($id){
+        try {
+            $obj=new modelProducto();
+            return $obj->DatosProductoModelo($id);
+        } catch (Exception $e) {
+            throw $e;
+        }
+    }
+
 }
 
 

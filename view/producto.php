@@ -1,3 +1,9 @@
+<?php
+    include_once"../controller/controllerProducto.php";
+    $objproducto = new ControllerProducto();
+    $listar = $objproducto->ControllerDatosProducto($_GET["id"]);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +22,6 @@
     <div class="cabecera"><a href="nosotros.php">Sobre nosotros</a></div>
     <div class="cabecera"><a href="busqueda.php">Videojuegos</a></div>
     <div class="cabecera"><a href="busqueda.php">Equipos</a></div>
-    <div class="cabecera"><a href="busqueda.php">Ofertas</a></div>
     </div> 
     <nav>
         <form method="post" action="busqueda.php">
@@ -40,8 +45,9 @@
 <section id="cont1">
     <aside id="izq">
         <article id="pro_ima">
-            <p id="titulo_ima_pro">Producto: #</p>
-            <img id="img1" src="#" width="500" height="500">
+            
+            <p id="titulo_ima_pro">Producto: <?php echo $listar[0][1]?></p>
+            <a href="producto.php?id=<?php echo $listar[0][0]?>"><img id="img1" src="../img/<?php echo $listar[0][0]?>.jpg" width="500" height="500"></a>
         </article>
         <article id="comentario">
             <form action="#">
@@ -96,6 +102,7 @@
             <article id="precio">
                 <form action="#">
                     <p id="titu_pre">Precio:</p>
+                    <p id="precio">#</p>
                     <select name="plat2" id="plat2">
                     <option value="basic_plat2">Plataformas</option>
                     </select>

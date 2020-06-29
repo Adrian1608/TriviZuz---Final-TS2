@@ -173,6 +173,7 @@ article#precio{
     border: rgba(233, 0, 0, 0.439);
     border-style: dotted;
 }
+
 article#com_users{
     position: absolute;
     width: 100%;
@@ -321,8 +322,14 @@ p#titu_pre{
     margin: 8% 4%; 
 
 }
+p#precio{
+    position: absolute;
+    font-family:Verdana,Geneva, Tahoma, sans-serif;
+    margin: 5% 38%; 
+    font-size: 600%;
+}
 select#plat2{
-    margin-top: 20%;
+    margin-top: 40%;
 }
 select#dist2{
     margin-top: 5%;
