@@ -32,7 +32,7 @@ class ModelProducto{
     public function ModelListarProducto(){
         try{
             $objeto = Conexion::singleton();
-            $query = $objeto -> prepare('SELECT * FROM producto LIMIT');
+            $query = $objeto -> prepare('SELECT * FROM producto');
             $query -> execute();
             $vector = $query->fetchAll();
             $query = null;
@@ -59,7 +59,7 @@ class ModelProducto{
         try{
             $objeto = Conexion::singleton();
             $query = $objeto -> prepare('SELECT * FROM producto LIMIT :inicir,:products');
-            $query -> bindParam(':inicir',$iniciar,PDO::PARAM_INT);
+            $query -> bindParam(':inicir',$inicio,PDO::PARAM_INT);
             $query -> bindParam(':products',$productos,PDO::PARAM_INT);
             $query -> execute();
             $vector = $query->fetchAll();
