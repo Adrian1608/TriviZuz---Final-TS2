@@ -44,7 +44,7 @@
             <img id="img1" src="#" width="500" height="500">
         </article>
         <article id="comentario">
-            <form action="#" target="_blank">
+            <form action="#">
                 <p id="deje_comen">Deje un comentario:</p>
                 <p id="comen"><textarea name="comentario" id="" cols="50" rows="1"></textarea></p>
                 <select name="dist" id="dist">
@@ -118,19 +118,21 @@
     </article>
     <article id="bot">
         <article id="caracteristicas">
-        <p class="pro1" id="caracteristica_titu">Caracteristicas del Producto:</p>
-        <p class="pro1" id="carac"><textarea name="carac" id="" cols="100" rows="15" readonly>#caracteristicas</textarea></p>
-        </article>
-        <article id="vendidas">
-        <p id="titu_vendidas">Unidades vendidas:</p>
-        <p id="vendidas">#</p>
-        <select name="plat3" id="plat3">
-        <option value="basic_plat3">Plataformas</option>
-        </select>
-        <select name="dist3" id="dist3">
-        <option value="basic3">Distribuidores</option>
-        </select>
-        <input id="mostar2" type="submit" value="Mostar">
+            <form action="#">
+            <p class="pro1" id="caracteristica_titu">Caracteristicas del Producto:</p>
+            <p class="pro1" id="carac"><textarea name="carac" id="" cols="100" rows="15" readonly>#caracteristicas</textarea></p>
+            </article>
+            <article id="vendidas">
+            <p id="titu_vendidas">Unidades vendidas:</p>
+            <p id="vendidas">#</p>
+            <select name="plat3" id="plat3">
+            <option value="basic_plat3">Plataformas</option>
+            </select>
+            <select name="dist3" id="dist3">
+            <option value="basic3">Distribuidores</option>
+            </select>
+            <input id="mostar2" type="submit" value="Mostar">
+            </form>
         </article>
     </article>
 </section>
