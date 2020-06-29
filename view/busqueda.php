@@ -117,6 +117,7 @@
 </body>
 
 <footer></footer>
+
 <table class="paginacion">
     <td><a href="busqueda.php?pagina=<?php echo $_GET['pagina']-1?>"><<</a></td>
 
