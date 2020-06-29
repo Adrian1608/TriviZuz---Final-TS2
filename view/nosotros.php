@@ -16,7 +16,6 @@
     <div class="cabecera"><a href="nosotros.php">Sobre nosotros</a></div>
     <div class="cabecera"><a href="busqueda.php">Videojuegos</a></div>
     <div class="cabecera"><a href="busqueda.php">Equipos</a></div>
-    <div class="cabecera"><a href="busqueda.php">Ofertas</a></div>
     </div> 
     <nav>
         <form method="post" action="busqueda.php">
@@ -37,6 +36,7 @@
         </form>
     </div>
 </header>
+<br>
 <section class="contenido">
     <article id="nosotros">
         <h1 class="titu_nosotros">>Nosotros<</h1>

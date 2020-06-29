@@ -32,7 +32,35 @@ class ModelProducto{
     public function ModelListarProducto(){
         try{
             $objeto = Conexion::singleton();
+            $query = $objeto -> prepare('SELECT * FROM producto LIMIT');
+            $query -> execute();
+            $vector = $query->fetchAll();
+            $query = null;
+            return $vector;
+        }catch(PDOException $e){
+            throw $e;
+        }
+    }
+
+    public function ModelContarProductos(){
+        try{
+            $objeto = Conexion::singleton();
             $query = $objeto -> prepare('SELECT * FROM producto');
+            $query -> execute();
+            $total_productos = $query -> rowCount();
+            $total_productos = ceil($total_productos);
+            return $total_productos;
+        }catch(PDOExpcetion $e){
+            throw $e;
+        }
+    }
+
+    public function ModelListarProductoConLimites($inicio,$productos){
+        try{
+            $objeto = Conexion::singleton();
+            $query = $objeto -> prepare('SELECT * FROM producto LIMIT :inicir,:products');
+            $query -> bindParam(':inicir',$iniciar,PDO::PARAM_INT);
+            $query -> bindParam(':products',$productos,PDO::PARAM_INT);
             $query -> execute();
             $vector = $query->fetchAll();
             $query = null;

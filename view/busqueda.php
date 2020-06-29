@@ -1,6 +1,9 @@
 <html>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="../css/estilos.css">
+
+<?php   include_once '../controller/controllerProducto.php';?>
+
+<link rel="stylesheet" type="text/css" href="../css/estilo1.css">
 <head>
 <?php
     if(isset($_POST["busqueda"])){
@@ -11,8 +14,27 @@
         ## Busqueda superior es la busqueda en todo mientras busqueda limitada es solo en esa categoria
         ## Solo se puede dar 1 a la vez logicamente, y eso dice la codicional
 
+    $productos_x_pagina = 20;
+
 ?>
     <title>Buscando en Trivizuz<?php echo $busqueda;?> </title>
+
+    <?php
+    
+    if(!$_GET){
+        header('Location:busqueda.php?pagina=1');
+    }
+    if($_GET['pagina']>=$productos_x_pagina){
+        header('Location:busqueda.php?pagina=1');
+    }
+
+    $iniciar = ($_GET['pagina']-1)*$productos_x_pagina;
+
+    $listar = new ControllerProducto();
+    $lista = $listar -> ControllerListarProductoConLimites($iniciar,$productos_x_pagina);
+
+    ?>
+
     <link rel="icon" href="../img/3vzuz icono.ico">
 </head>
 
@@ -22,7 +44,6 @@
     <div class="cabecera"><a href="nosotros.php">Sobre nosotros</a></div>
     <div class="cabecera"><a href="busqueda.php">Videojuegos</a></div>
     <div class="cabecera"><a href="busqueda.php">Equipos</a></div>
-    <div class="cabecera"><a href="busqueda.php">Ofertas</a></div>
     </div> 
     <nav>
         <form method="post" action="busqueda.php">
@@ -69,7 +90,17 @@
     </nav>
 </header>
 <body>
-    <?php $item_x_pagina = 30; ##Cada página tendrá 30 items para mostrar máximo jsjs ?>
+
+    <?php ##Cada página tendrá 30 items para mostrar máximo jsjs 
+
+        $productos = new ControllerProducto();
+        $cantidad_productos = $productos -> ControllerContarProductos();
+
+        $paginas = $cantidad_productos / $productos_x_pagina;
+    
+    ?>
+
+
     <div class="producto"><a href="busqueda.php"><div class="texto">Fire Emblem Fates: Birthright</div>
     <img src="../img/wp1844118-fire-emblem-wallpapers.jpg" width="225px" height="225px"/></a></div>
 
@@ -114,13 +145,18 @@
 
 <footer></footer>
 <table class="paginacion">
-    <td><a href="busqueda.php"><<</a></td>
-    <td><a href="busqueda.php">1</a></td>
-    <td><a href="busqueda.php">2</a></td>
-    <td><a href="busqueda.php">3</a></td>
-    <td><a href="busqueda.php">4</a></td>
-    <td><a href="busqueda.php">5</a></td>
-    <td><a href="busqueda.php">>></a></td>
+    <td><a href="busqueda.php?pagina=<?php echo $_GET['pagina']-1?>"><<</a></td>
+
+<?php  for($i=0;$i<$paginas;$i++): ?>
+    
+    <td><a href="busqueda.php?pagina=<?php echo $i+1; ?>">
+
+    <?php echo $i+1; ?>
+
+    </a></td>
+
+<?php endfor ?>
+    <td><a href="busqueda.php?pagina=<?php echo $_GET['pagina']+1?>">>></a></td>
 </table>
 
 </html>
