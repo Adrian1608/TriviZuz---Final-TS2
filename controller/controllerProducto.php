@@ -22,6 +22,23 @@ class ControllerProducto{
         }
     }
 
+    public function ControllerContarProductos(){
+        try{
+            $objeto = new ModelProducto();
+            return $objeto -> ModelContarProductos();
+        }catch(PDOException $e){
+            throw $e;
+        }
+    }
+
+    public function ControllerListarProductoConLimites($inicio,$productos){
+        try{
+            $objeto = new ModelProducto();
+            return $objeto -> ModelListarProductoConLimites($inicio,$productos);
+        }catch(PDOException $e){
+            throw $e;
+        }
+    }
 }
 
 
