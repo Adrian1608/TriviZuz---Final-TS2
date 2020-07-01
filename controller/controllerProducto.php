@@ -66,19 +66,37 @@ class ControllerProducto{
         }
     }
 
-    public function ControllerListarProductoPorPrecio(){
+    public function ControllerListarProductoPorPrecio($inicio,$productos){
         try{
             $objeto = new ModelProducto();
-            return $objeto -> ModelListarProductoPorPrecio();
+            return $objeto -> ModelListarProductoPorPrecio($inicio,$productos);
         }catch(PDOException $e){
             throw $e;
         }
     }
 
-    public function ControllerListarProductoPorGenero(){
+    public function ControllerListarProductoPorRating($inicio,$productos){
         try{
             $objeto = new ModelProducto();
-            return $objeto -> ModelListarProductoPorGenero();
+            return $objeto -> ModelListarProductoPorRating($inicio,$productos);
+        }catch(PDOException $e){
+            throw $e;
+        }
+    }
+
+    public function ControllerListarProductoPorTienda($inicio,$productos){
+        try{
+            $objeto = new ModelProducto();
+            return $objeto -> ModelListarProductoPorTienda($inicio,$productos);
+        }catch(PDOException $e){
+            throw $e;
+        }
+    }
+
+    public function ControllerListarProductoPorGenero($inicio,$productos,$genero){
+        try{
+            $objeto = new ModelProducto();
+            return $objeto -> ModelListarProductoPorGenero($inicio,$productos,$genero);
         }catch(PDOException $e){
             throw $e;
         }

@@ -50,26 +50,25 @@
     </div>
 </header>
 <header id="inferior">
-<form method="post" action="categorizacion_producto.php">
-    <div><select>
-        <option name="ordenar" value="ninguno">Ordenar por:</option>
-        <option name="ordenar" value="precio">Precio</option>
-        <option name="ordenar" value="lanzamiento">Fecha de lanzamiento</option>
-        <option name="ordenar" value="llegada">Rating</option>
-        <option name="ordenar" value="tienda">Tienda</option>
+<form method="post" action="categorizacion_producto.php?pagina=<?php echo $_GET["pagina"];?>">
+    <div><select name = "orden">
+        <option value="ninguno">Ordenar por:</option>
+        <option value="precio">Precio</option>
+        <option value="rating">Rating</option>
+        <option value="tienda">Tienda</option>
     </select></div>
     <div>
     <input type="submit" value="Mostrar">
     </div>
 </form>
-<form method="post" action="categorizacion_producto.php">
-    <div><select>
-        <option name="genero" value="ninguno">Categorías:</option>
-        <option name="genero" value="accion">Accion</option>
-        <option name="genero" value="aventura">Aventura</option>
-        <option name="genero" value="estrategia">Estrategia</option>
-        <option name="genero" value="rpg">RPG</option>
-        <option name="genero" value="casuales">Casuales</option>
+<form method="post" action="categorizacion_producto.php?pagina=<?php echo $_GET["pagina"];?>">
+    <div><select name="genero">
+        <option value="ninguno">Categorías:</option>
+        <option value="accion">Accion</option>
+        <option value="aventura">Aventura</option>
+        <option value="estrategia">Estrategia</option>
+        <option value="rpg">RPG</option>
+        <option value="casual">Casual</option>
     </select></div>
     <div>
         <input type="submit" value="Mostrar">
