@@ -37,6 +37,19 @@ class ModelCliente{
             throw $e;
         }
     }
+    public function ModelBuscarCliente($id){
+        try{
+            $objeto = Conexion::singleton();
+            $query = $objeto -> prepare('SELECT * FROM cliente WHERE id_cliente=?');
+            $query -> bindParam(1,$id);
+            $query -> execute();
+            $vector = $query -> fetchAll();
+            $query = null;
+            return $vector;
+        }catch(PDOException $e){
+            throw $e;
+        }
+    }
 }
 
 ?>

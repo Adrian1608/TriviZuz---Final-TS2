@@ -83,6 +83,19 @@ class ModelProducto{
             throw $e;
         }
     }
+    public function DatosProductoComentarioModelo($id){
+        try {
+            $obj = Conexion::singleton();
+            $query = $obj->prepare('select * from comentario where id_producto=?');
+            $query -> bindParam(1, $id);
+            $query->execute();
+            $vector = $query->fetchAll();
+            $query=null;
+            return $vector;
+        } catch (Exception $e) {
+            throw $e;
+        }
+    }
 }
 
 ?>

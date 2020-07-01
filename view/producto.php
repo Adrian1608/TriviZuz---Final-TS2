@@ -1,5 +1,8 @@
 <?php
     include_once"../controller/controllerProducto.php";
+    include_once"../controller/controllerCliente.php";
+    include_once"../controller/controllerTienda.php";
+    include_once"../controller/controllerPedido.php";
     $objproducto = new ControllerProducto();
     $listar = $objproducto->ControllerDatosProducto($_GET["id"]);
 
@@ -50,29 +53,20 @@
             <a href="producto.php?id=<?php echo $listar[0][0]?>"><img id="img1" src="../img/<?php echo $listar[0][0]?>.jpg" width="500" height="500"></a>
         </article>
         <article id="comentario">
-            <form action="#">
+            <form action="../controller/controllerRegistrarComentario.php" method="post">
                 <p id="deje_comen">Deje un comentario:</p>
-                <p id="comen"><textarea name="comentario" id="" cols="50" rows="1"></textarea></p>
-                <select name="dist" id="dist">
-                <option value="basic">Distribuidores</option>
-                </select>
-                <br>
-                <select name="plat" id="plat">
-                <option value="basic_plat">Plataformas</option>
-                </select>
-                <br>
-                <select name="des" id="des">
-                <option value="basic_des">Desarrolladores</option>
-                </select>
-                <input id="enviar" type="submit" value="Enviar">
+                <input type="hidden" name="id_producto" value="<?php echo $_GET["id"]?>">
+                <p id="comen"><textarea name="comentario" cols="50" rows="1"></textarea></p>
+                <input id="enviar" type="submit" name="submit" value="Enviar">
             </form>
         </article>
     </aside>
     <article id="cont">
         <article id="top_pro">
             <article id="calificacion">
-                <form action="#">
+                <form action="../controller/controllerRegistarCalificacion.php" method="post">
                     <p id="titu_clas">Clasificación:</p>
+                    <input type="hidden" name="id_producto" value="<?php echo $_GET["id"]?>">
                     <p class="clasi">
                             <input id="radio1" type="radio" name="estrellas" value="5">
                             <label class="titu" id="pop" for="radio1">★</label>
@@ -85,62 +79,83 @@
                             <input id="radio5" type="radio" name="estrellas" value="1">
                             <label class="titu"  for="radio5">★</label>
                     </p>
-                    <select name="dist1" id="dist1">
-                    <option value="basic">Distribuidores</option>
-                    </select>
-                    
-                    <select name="plat1" id="plat1">
-                    <option value="basic_plat">Plataformas</option>
-                    </select>
-                    
-                    <select name="des1" id="des1">
-                    <option value="basic_des">Desarrolladores</option>
-                    </select>
-                    <input id="filtrar" type="submit" value="Filtrar">
+                    <input id="filtrar" type="submit" value="Enviar">
                 </form>
             </article>
             <article id="precio">
-                <form action="#">
                     <p id="titu_pre">Precio:</p>
-                    <p id="precio">#</p>
-                    <select name="plat2" id="plat2">
-                    <option value="basic_plat2">Plataformas</option>
-                    </select>
-                    <select name="dist2" id="dist2">
-                    <option value="basic2">Distribuidores</option>
-                    </select>
-                    <input id="mostar" type="submit" value="Mostar">
-                </form>
+                    <p id="precio">
+                        <?php
+                            $obj2 = new ControllerProducto();
+                            $pro2 = $obj2 -> ControllerDatosProducto($_GET["id"]);
+                            echo "S/. ".$pro2[0][2];                        
+                            ?>
+                    </p>
             </article>
             <article id="com_users">
                 <p id="titu_comen_use">Comentarios de usuarios:</p>
-                <p class="pro" id="nameuse1">Usuario: #</p>
-                <p class="pro" id="comen1"><textarea name="comentario1" id="" cols="50" rows="3" readonly>#comentario</textarea></p>
-                <p class="pro" id="nameuse2">Usuario: #</p>
-                <p class="pro" id="comen2"><textarea name="comentario1" id="" cols="50" rows="3" readonly>#comentario</textarea></p>
-                <p class="pro" id="nameuse3">Usuario: #</p>
-                <p class="pro" id="comen3"><textarea name="comentario1" id="" cols="50" rows="3" readonly>#comentario</textarea></p>
+                    <?php 
+                    $objcomentarios = new ControllerProducto();
+                    $objuser = new ControllerCliente();
+                    try {
+                        $comen = $objcomentarios -> ControllerComentarioProducto($_GET["id"]);
+                    } catch (Exception $e) {
+                        $comen = null;
+                        throw $e;
+                    }
+                    $aux = 1;
+                    if ($comen != null and $aux<=3) {
+                        foreach($comen as $fila) { ?>
+                            <p class="pro" id="nameuse1"><?php 
+                                $usercomen = $objuser -> ControllerBuscarCliente($fila[1]);
+                                echo $usercomen[0][1]." ".$usercomen[0][2];
+                            ?></p>
+                            <p class="pro" id="comen1"><textarea name="comentario1" id="" cols="50" rows="3" readonly><?php echo $fila[0]?></textarea></p>
+                        <?php
+                        $aux = $aux + 1;
+                        }
+                    } else { ?>
+                        <p id="nameuse2">No hay comentarios</p>
+                    <?php }
+                ?>
             </article>
         </article>
     </article>
     <article id="bot">
         <article id="caracteristicas">
             <p class="pro1" id="caracteristica_titu">Caracteristicas del Producto:</p>
-            <p class="pro1" id="carac"><textarea name="carac" id="" cols="100" rows="15" readonly>#caracteristicas</textarea></p>
+            <p class="pro1" id="carac"><textarea name="carac" id="" cols="100" rows="15" readonly>
+                <?php 
+                    $objtienda = new ControllerTienda();
+                    $objpro = new ControllerProducto();
+                    $pro = $objpro -> ControllerDatosProducto($_GET["id"]);
+                    $pro_tienda = $listar[0][6];
+                    $dato = $objtienda->ControllerBuscarTienda($pro_tienda);
+
+                    echo "\nNombre: ".$pro[0][1]."\n";
+                    echo "\n";
+                    echo "Descripción:\n";
+                    echo $pro[0][3];
+                    echo "\n";
+                    echo "\nGenero: ".$pro[0][9]."\n";
+                    echo "\n";
+                    echo "\nTienda: ".$dato[0][1]."\n";
+                    echo "\n";
+                    echo "\nDirección: ".$dato[0][2]."\n";
+                    echo "\n";
+                    echo "\nTelefono: ".$dato[0][3]."\n";
+                ?>        
+            </textarea></p>
         </article>
         
         <article id="vendidas">
-        <form action="#">
             <p id="titu_vendidas">Unidades vendidas:</p>
-            <p id="vendidas">#</p>
-            <select name="plat3" id="plat3">
-            <option value="basic_plat3">Plataformas</option>
-            </select>
-            <select name="dist3" id="dist3">
-            <option value="basic3">Distribuidores</option>
-            </select>
-            <input id="mostar2" type="submit" value="Mostar">
-        </form>
+            <p id="vendidas">
+                <?php
+                    $objpedido = new ControllerPedido();
+                    echo $cant = $objpedido -> ControllerContarProducto($_GET["id"]);
+                ?>
+            </p>
         </article>
     </article>
 </section>

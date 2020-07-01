@@ -234,7 +234,7 @@ input#enviar{
     color: rgb(0, 0, 0);
     position: absolute;
     margin-right: 17%;
-    margin-top: -9%;
+    margin-top: 0%;
     right: 0;
     padding: 5px 8px;
     text-align: center;
@@ -264,6 +264,10 @@ label#pop{
     margin-right: 5%;
 }
 p.clasi{
+    position: absolute;
+    top: 22%;
+    left: 33%;
+    width: 200px;
     direction: rtl;
     unicode-bidi: bidi-override;
 }
@@ -276,7 +280,7 @@ input#radio1:checked ~ label.titu,input#radio2:checked ~ label.titu,input#radio3
 p#titu_clas{
     position: absolute;
     font-family:Geneva, Tahoma, sans-serif;
-    margin: 8% 4%; 
+    margin: 33.5% 6%; 
 
 }
 select#plat1{
@@ -297,7 +301,7 @@ input#filtrar{
     color: rgb(0, 0, 0);
     position: absolute;
     margin-right: 39%;
-    margin-top: 15%;
+    margin-top: 48%;
     right: 0;
     padding: 5px 8px;
     text-align: center;
@@ -325,8 +329,9 @@ p#titu_pre{
 p#precio{
     position: absolute;
     font-family:Verdana,Geneva, Tahoma, sans-serif;
-    margin: 5% 38%; 
-    font-size: 600%;
+    margin: 36% 18%;
+    width: 300px; 
+    font-size: 400%;
 }
 select#plat2{
     margin-top: 40%;
@@ -376,6 +381,11 @@ p.pro{
 p#nameuse1{
     margin-top: 9%;
 }
+p#nameuse2{
+    margin-top: 9%;
+    margin-left: 38%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 textarea.cometario1{
     resize: none;
 }
@@ -395,7 +405,7 @@ p#titu_vendidas{
 p#vendidas{
     position: absolute;
     font-family:Verdana,Geneva, Tahoma, sans-serif;
-    margin: 5% 28%; 
+    margin: 20% 35%; 
     font-size: 1200%;
 }
 select#plat3{

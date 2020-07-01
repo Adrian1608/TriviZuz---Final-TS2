@@ -25,7 +25,7 @@
 
     $listar = new ControllerProducto();
     $lista = $listar -> ControllerListarProductoConLimites($iniciar,$productos_x_pagina);
-
+    $listas = $listar -> ControllerListarProducto();
     ?>
 
     <link rel="icon" href="../img/3vzuz icono.ico">
@@ -107,9 +107,9 @@
 
     <?php
 
-        foreach($lista as $fila){
-            echo '<div class="producto"><a href="busqueda.php"><div class="texto">'.$fila[1].'</div>
-            <img src="../img/'. $fila[7].'" width="225px" height="225px"/></a></div>';
+        foreach($listas as $fila){
+            echo '<div class="producto"><a href="producto.php?id='.$fila[0].'">
+            <img src="../img/'.$fila[0].'.jpg" width="225px" height="225px"/></a></div>';
         }
     
     ?>

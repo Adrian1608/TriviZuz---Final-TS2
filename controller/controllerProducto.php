@@ -48,6 +48,14 @@ class ControllerProducto{
             throw $e;
         }
     }
+    public function ControllerComentarioProducto($id){
+        try {
+            $obj=new modelProducto();
+            return $obj->DatosProductoComentarioModelo($id);
+        } catch (Exception $e) {
+            throw $e;
+        }
+    }
 
 }
 
