@@ -1,0 +1,185 @@
+html{
+	font-family: 'Arial', cursive;
+}
+.li1{
+	left: 350px;
+	position: absolute;
+	list-style: none;
+	float:left;
+	width:196px;
+	margin:0px 2px;
+	height:48px;
+	background-color: red;
+	color:black;
+	text-align:center;
+	line-height:48px;
+}
+.li2{
+	left: 550px;
+	position: absolute;
+	list-style: none;
+	float:left;
+	width:196px;
+	margin:0px 2px;
+	height:48px;
+	background-color: red;
+	color:black;
+	text-align:center;
+	line-height:48px;
+}
+.li3{
+	left: 750px;
+	position: absolute;
+	list-style: none;
+	float:left;
+	width:196px;
+	margin:0px 2px;
+	height:48px;
+	background-color: red;
+	color:black;
+	text-align:center;
+	line-height:48px;
+}
+
+.li1:hover{
+	background-color: black;
+	color: red;
+}
+.li2:hover{
+	background-color: black;
+	color: red;
+}
+.li3:hover{
+	background-color: black;
+	color: red;
+}
+
+.logo{
+	position: absolute;
+}
+
+.usu{
+	list-style: none;
+	position: absolute;
+	left:1300px;
+	top: 25px;
+}
+.salir{
+	list-style: none;
+	position: absolute;
+	top: 40px;
+	left:1300px;
+}
+
+h1{
+	position: absolute;
+	left: 120px;
+	top: 0px;
+}
+input[name="usuario"]{
+	position: absolute;
+	left:1200px;
+}
+input[name="contraseñausuario"]{
+	position: absolute;
+	left:1200px;
+	top: 40px;
+}
+input[name="Ingresar"]{
+	position: absolute;
+	left:1400px;
+}
+input[name="Registro"]{
+	position: absolute;
+	left:1400px;
+	top:40px;
+}
+input[name="busqueda"]{
+	position: absolute;
+	left:1000px;
+}
+input[name="Buscar"]{
+	position: absolute;
+	left:1050px;
+	top:40px;
+}
+.Algo1{
+	position: absolute;
+	top: 120px;
+	left: 50px
+}
+.Algotex1{
+	position: absolute;
+	top: 490px;
+	left: 50px
+}
+.Algo2{
+	position: absolute;
+	top: 120px;
+	left: 410px
+}
+.Algotex2{
+	position: absolute;
+	top: 490px;
+	left: 410px
+}
+.Algo3{
+	position: absolute;
+	top: 120px;
+	left: 770px
+}
+.Algotex3{
+	position: absolute;
+	top: 490px;
+	left: 770px
+}
+.Algo4{
+	position: absolute;
+	top: 120px;
+	left: 1130px
+}
+.Algotex4{
+	position: absolute;
+	top: 490px;
+	left: 1130px
+}
+.Algo5{
+	position: absolute;
+	top: 550px;
+	left: 50px
+}
+.Algotex5{
+	position: absolute;
+	top: 910px;
+	left: 50px
+}
+.Algo6{
+	position: absolute;
+	top: 550px;
+	left: 410px
+}
+.Algotex6{
+	position: absolute;
+	top: 910px;
+	left: 410px
+}
+.Algo7{
+	position: absolute;
+	top: 550px;
+	left: 770px
+}
+.Algotex7{
+	position: absolute;
+	top: 910px;
+	left: 770px
+}
+.Algo8{
+	position: absolute;
+	top: 550px;
+	left: 1130px
+}
+.Algotex8{
+	position: absolute;
+	top: 910px;
+	left: 1130px
+}

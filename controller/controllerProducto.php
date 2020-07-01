@@ -84,6 +84,15 @@ class ControllerProducto{
         }
     }
 
+    public function ControllerBuscarProductoEquipo($busqueda){
+        try{
+            $objeto = new ModelProducto();
+            return $objeto -> ModelBuscarProductoEquipo($busqueda);
+        }catch(PDOException $e){
+            throw $e;
+        }
+    }
+
     public function ControllerListarProductoPorPrecio($inicio,$productos){
         try{
             $objeto = new ModelProducto();

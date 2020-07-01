@@ -32,6 +32,7 @@
     <nav>
         <form method="get" action="busqueda_producto.php">
             <input class="busqueda" type="text" placeholder="Buscar..." name="la_busqueda">
+            <input type="hidden" value="tipo_producto">
             <input type="submit" value="Buscar">
         </form>
     </nav>

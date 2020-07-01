@@ -128,6 +128,19 @@ class ModelProducto{
     public function ModelBuscarProducto($busqueda){
         try{
             $objeto = Conexion::singleton();
+            $query = $objeto -> prepare("SELECT * FROM producto WHERE tipo_producto = 0 AND (nombre_producto LIKE '%$busqueda%' OR descripcion_producto LIKE '%$busqueda%')");
+            $query -> execute();
+            $vector = $query->fetchAll();
+            $query = null;
+            return $vector;
+        }catch(PDOException $e){
+            throw $e;
+        }
+    }
+
+    public function ModelBuscarProductoEquipo($busqueda){
+        try{
+            $objeto = Conexion::singleton();
             $query = $objeto -> prepare("SELECT * FROM producto WHERE (nombre_producto LIKE '%$busqueda%' OR descripcion_producto LIKE '%$busqueda%')");
             $query -> execute();
             $vector = $query->fetchAll();

@@ -25,3 +25,15 @@ p#img3{
     position: absolute;
     right: 4%;
 }
+.usu{
+    list-style: none;
+    position: absolute;
+    left:1300px;
+    top: 25px;
+}
+.salir{
+    list-style: none;
+    position: absolute;
+    top: 40px;
+    left:1300px;
+}

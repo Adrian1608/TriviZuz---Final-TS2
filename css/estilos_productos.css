@@ -466,3 +466,15 @@ input#comprar{
     background-color: black;
     color: white;
 }
+.usu{
+    list-style: none;
+    position: absolute;
+    left:1300px;
+    top: 25px;
+}
+.salir{
+    list-style: none;
+    position: absolute;
+    top: 40px;
+    left:1300px;
+}

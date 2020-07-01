@@ -126,3 +126,15 @@ img{
 img:hover{
     opacity:0.30;
 }
+.usu{
+    list-style: none;
+    position: absolute;
+    left:1300px;
+    top: 25px;
+}
+.salir{
+    list-style: none;
+    position: absolute;
+    top: 40px;
+    left:1300px;
+}

@@ -84,7 +84,12 @@
         $paginas = ceil($paginas);
 
         $listar = new ControllerProducto();
-        $listas = $listar -> ControllerBuscarProducto($la_busqueda);
+
+        if(isset($_GET["tipo_producto"])){
+            $listas = $listar -> ControllerBuscarProductoEquipo($la_busqueda);
+        }else{
+            $listas = $listar -> ControllerBuscarProducto($la_busqueda);
+        }
 
     ?>
 

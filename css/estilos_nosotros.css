@@ -122,3 +122,15 @@ img:hover{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     text-align: center;
 }
+.usu{
+    list-style: none;
+    position: absolute;
+    left:1300px;
+    top: 25px;
+}
+.salir{
+    list-style: none;
+    position: absolute;
+    top: 40px;
+    left:1300px;
+}
