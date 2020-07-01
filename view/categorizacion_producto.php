@@ -7,8 +7,17 @@
 <head>
 <?php
     $productos_x_pagina = 20;
+
 ?>
     <title>Buscando en 3VZUZ</title>
+
+    <?php
+
+    $iniciar = ($_GET['pagina']-1)*$productos_x_pagina;
+
+    $listar = new ControllerProducto();
+    $lista = $listar -> ControllerListarProductoPorPrecio($iniciar,$productos_x_pagina);
+    ?>
 
     <link rel="icon" href="../img/3vzuz icono.ico">
 </head>
@@ -21,16 +30,8 @@
     <div class="cabecera"><a href="busqueda.php">Equipos</a></div>
     </div> 
     <nav>
-        <?php
-            $la_busqueda = strtolower($_REQUEST["la_busqueda"]);
-
-            if(empty($la_busqueda)){
-                header('Location:busqueda.php');
-            }
-
-        ?>
         <form method="get" action="busqueda_producto.php">
-            <input class="busqueda" type="text" placeholder="Buscar..." name="la_busqueda" value="<?php echo $la_busqueda;?>">
+            <input class="busqueda" type="text" placeholder="Buscar..." name="la_busqueda">
             <input type="submit" value="Buscar">
         </form>
     </nav>
@@ -40,10 +41,10 @@
             <input type="password" placeholder="Contraseña" name="contraseña">
     </div>
     <div>
-        <input type="submit" value="Ingresar">
+        <button type="submit" value="ingreso">Ingresar</button>
         </form>
         <form method="post" action="registrar.php">
-        <input type="submit" value="Registrarse">
+        <button type="submit" value="registrar">Registrarse</button>
         </form>
     </div>
 </header>
@@ -75,7 +76,7 @@
 </header>
 <body>
 
-    <?php ##Cada página tendrá 20 items para mostrar máximo jsjs 
+    <?php ##Cada página tendrá 30 items para mostrar máximo jsjs 
 
         $productos = new ControllerProducto();
         $cantidad_productos = $productos -> ControllerContarProductos();
@@ -83,14 +84,40 @@
         $paginas = $cantidad_productos / $productos_x_pagina;
         $paginas = ceil($paginas);
 
-        $listar = new ControllerProducto();
-        $listas = $listar -> ControllerBuscarProducto($la_busqueda);
+        if (isset($_POST["orden"])){
+            $orden = $_POST["orden"];
+            if ($orden=="precio"){
+                $lista = $listar -> ControllerListarProductoPorPrecio($iniciar,$productos_x_pagina);
+            }else if($orden=="rating"){
+                $lista = $listar -> ControllerListarProductoPorRating($iniciar,$productos_x_pagina);
+            }else if($orden=="tienda"){
+                $lista = $listar -> ControllerListarProductoPorTienda($iniciar,$productos_x_pagina);
+            }else{
+                $lista = $listar -> ControllerListarProducto($iniciar,$productos_x_pagina);
+            }
+        }
 
+        if (isset($_POST["genero"])){
+            $genero = $_POST["genero"];
+            if ($genero=="ninguno"){
+                $lista = $listar -> ControllerListarProducto($iniciar,$productos_x_pagina);
+            }else{
+                $lista = $listar -> ControllerListarProductoPorGenero($iniciar,$productos_x_pagina,$genero);
+            }
+        }
+
+        if(!$_GET){
+            header('Location:categorizacion_producto.php?pagina=1');
+        }
+
+        if($_GET['pagina'] > $paginas || $_GET['pagina'] <= 0){
+            header('Location:categorizacion_producto.php?pagina=1');
+        }
     ?>
 
     <?php
 
-        foreach($listas as $fila){
+        foreach($lista as $fila){
             echo '<div class="producto"><a href="producto.php?id='.$fila[0].'">
             <img src="../img/'.$fila[0].'.jpg" width="225px" height="225px"/></a></div>';
         }
@@ -102,18 +129,18 @@
 <footer></footer>
 
 <table class="paginacion">
-    <td><a href="busqueda.php?pagina=<?php echo $_GET['pagina']-1?>"><<</a></td>
+    <td><a href="categorizacion_producto.php?pagina=<?php echo $_GET['pagina']-1?>"><<</a></td>
 
 <?php  for($i=0;$i<$paginas;$i++): ?>
     
-    <td><a href="busqueda.php?pagina=<?php echo $i+1; ?>">
+    <td><a href="categorizacion_producto.php?pagina=<?php echo $i+1; ?>">
 
     <?php echo $i+1; ?>
 
     </a></td>
 
 <?php endfor ?>
-    <td><a href="busqueda.php?pagina=<?php echo $_GET['pagina']+1?>">>></a></td>
+    <td><a href="categorizacion_producto.php?pagina=<?php echo $_GET['pagina']+1?>">>></a></td>
 </table>
 
 </html>
