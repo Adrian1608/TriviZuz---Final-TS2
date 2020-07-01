@@ -32,7 +32,7 @@ class ModelProducto{
     public function ModelListarProducto(){
         try{
             $objeto = Conexion::singleton();
-            $query = $objeto -> prepare('SELECT * FROM producto');
+            $query = $objeto -> prepare('SELECT * FROM producto WHERE tipo_producto=0');
             $query -> execute();
             $vector = $query->fetchAll();
             $query = null;
@@ -45,7 +45,20 @@ class ModelProducto{
     public function ModelContarProductos(){
         try{
             $objeto = Conexion::singleton();
-            $query = $objeto -> prepare('SELECT * FROM producto');
+            $query = $objeto -> prepare('SELECT * FROM producto WHERE tipo_producto=0');
+            $query -> execute();
+            $total_productos = $query -> rowCount();
+            $total_productos = ceil($total_productos);
+            return $total_productos;
+        }catch(PDOExpcetion $e){
+            throw $e;
+        }
+    }
+
+    public function ModelContarEquipoProductos(){
+        try{
+            $objeto = Conexion::singleton();
+            $query = $objeto -> prepare('SELECT * FROM producto WHERE tipo_producto=1');
             $query -> execute();
             $total_productos = $query -> rowCount();
             $total_productos = ceil($total_productos);
@@ -58,7 +71,22 @@ class ModelProducto{
     public function ModelListarProductoConLimites($inicio,$productos){
         try{
             $objeto = Conexion::singleton();
-            $query = $objeto -> prepare('SELECT * FROM producto LIMIT :inicir,:products');
+            $query = $objeto -> prepare('SELECT * FROM producto WHERE tipo_producto=0 LIMIT :inicir,:products');
+            $query -> bindParam(':inicir',$inicio,PDO::PARAM_INT);
+            $query -> bindParam(':products',$productos,PDO::PARAM_INT);
+            $query -> execute();
+            $vector = $query->fetchAll();
+            $query = null;
+            return $vector;
+        }catch(PDOException $e){
+            throw $e;
+        }
+    }
+
+    public function ModelListarProductoEquipoConLimites($inicio,$productos){
+        try{
+            $objeto = Conexion::singleton();
+            $query = $objeto -> prepare('SELECT * FROM producto WHERE tipo_producto=1  LIMIT :inicir,:products');
             $query -> bindParam(':inicir',$inicio,PDO::PARAM_INT);
             $query -> bindParam(':products',$productos,PDO::PARAM_INT);
             $query -> execute();
@@ -113,7 +141,7 @@ class ModelProducto{
     public function ModelListarProductoPorPrecio($inicio,$productos){
         try{
             $objeto = Conexion::singleton();
-            $query = $objeto -> prepare('SELECT * FROM producto ORDER BY precio_producto DESC LIMIT :inicir,:products');
+            $query = $objeto -> prepare('SELECT * FROM producto WHERE tipo_producto = 0 ORDER BY precio_producto DESC LIMIT :inicir,:products');
             $query -> bindParam(':inicir',$inicio,PDO::PARAM_INT);
             $query -> bindParam(':products',$productos,PDO::PARAM_INT);
             $query -> execute();
@@ -125,10 +153,41 @@ class ModelProducto{
         }
     }
 
+    public function ModelListarProductoEquipoPorPrecio($inicio,$productos){
+        try{
+            $objeto = Conexion::singleton();
+            $query = $objeto -> prepare('SELECT * FROM producto WHERE tipo_producto = 1 ORDER BY precio_producto DESC LIMIT :inicir,:products');
+            $query -> bindParam(':inicir',$inicio,PDO::PARAM_INT);
+            $query -> bindParam(':products',$productos,PDO::PARAM_INT);
+            $query -> execute();
+            $vector = $query->fetchAll();
+            $query = null;
+            return $vector;
+        }catch(PDOException $e){
+            throw $e;
+        }
+    }
+
+
     public function ModelListarProductoPorRating($inicio,$productos){
         try{
             $objeto = Conexion::singleton();
-            $query = $objeto -> prepare('SELECT * FROM producto ORDER BY rating_producto DESC LIMIT :inicir,:products');
+            $query = $objeto -> prepare('SELECT * FROM producto WHERE tipo_producto = 0 ORDER BY rating_producto DESC LIMIT :inicir,:products');
+            $query -> bindParam(':inicir',$inicio,PDO::PARAM_INT);
+            $query -> bindParam(':products',$productos,PDO::PARAM_INT);
+            $query -> execute();
+            $vector = $query->fetchAll();
+            $query = null;
+            return $vector;
+        }catch(PDOException $e){
+            throw $e;
+        }
+    }
+
+    public function ModelListarProductoEquipoPorRating($inicio,$productos){
+        try{
+            $objeto = Conexion::singleton();
+            $query = $objeto -> prepare('SELECT * FROM producto WHERE tipo_producto = 1 ORDER BY rating_producto DESC LIMIT :inicir,:products');
             $query -> bindParam(':inicir',$inicio,PDO::PARAM_INT);
             $query -> bindParam(':products',$productos,PDO::PARAM_INT);
             $query -> execute();
@@ -143,7 +202,22 @@ class ModelProducto{
     public function ModelListarProductoPorTienda($inicio,$productos){
         try{
             $objeto = Conexion::singleton();
-            $query = $objeto -> prepare('SELECT * FROM producto ORDER BY id_tienda DESC LIMIT :inicir,:products');
+            $query = $objeto -> prepare('SELECT * FROM producto WHERE tipo_producto = 0 ORDER BY id_tienda DESC LIMIT :inicir,:products');
+            $query -> bindParam(':inicir',$inicio,PDO::PARAM_INT);
+            $query -> bindParam(':products',$productos,PDO::PARAM_INT);
+            $query -> execute();
+            $vector = $query->fetchAll();
+            $query = null;
+            return $vector;
+        }catch(PDOException $e){
+            throw $e;
+        }
+    }
+
+    public function ModelListarProductoEquipoPorTienda($inicio,$productos){
+        try{
+            $objeto = Conexion::singleton();
+            $query = $objeto -> prepare('SELECT * FROM producto WHERE tipo_producto = 1 ORDER BY id_tienda DESC LIMIT :inicir,:products');
             $query -> bindParam(':inicir',$inicio,PDO::PARAM_INT);
             $query -> bindParam(':products',$productos,PDO::PARAM_INT);
             $query -> execute();
@@ -158,7 +232,7 @@ class ModelProducto{
     public function ModelListarProductoPorGenero($inicio,$productos,$genero){
         try{
             $objeto = Conexion::singleton();
-            $query = $objeto -> prepare('SELECT * FROM producto WHERE genero_producto=:genro LIMIT :inicir,:products');
+            $query = $objeto -> prepare('SELECT * FROM producto WHERE tipo_producto=0 AND genero_producto=:genro LIMIT :inicir,:products');
             $query -> bindParam(':genro',$genero);
             $query -> bindParam(':inicir',$inicio,PDO::PARAM_INT);
             $query -> bindParam(':products',$productos,PDO::PARAM_INT);

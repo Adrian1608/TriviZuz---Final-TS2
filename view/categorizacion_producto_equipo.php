@@ -16,7 +16,7 @@
     $iniciar = ($_GET['pagina']-1)*$productos_x_pagina;
 
     $listar = new ControllerProducto();
-    $lista = $listar -> ControllerListarProductoPorPrecio($iniciar,$productos_x_pagina);
+    $lista = $listar -> ControllerListarProductoEquipoConLimites($iniciar,$productos_x_pagina);
     ?>
 
     <link rel="icon" href="../img/3vzuz icono.ico">
@@ -49,7 +49,7 @@
     </div>
 </header>
 <header id="inferior">
-<form method="post" action="categorizacion_producto.php?pagina=<?php echo $_GET["pagina"];?>">
+<form method="post" action="categorizacion_producto_equipo.php?pagina=<?php echo $_GET["pagina"];?>">
     <div><select name = "orden">
         <option value="ninguno">Ordenar por:</option>
         <option value="precio">Precio</option>
@@ -60,58 +60,36 @@
     <input type="submit" value="Mostrar">
     </div>
 </form>
-<form method="post" action="categorizacion_producto.php?pagina=<?php echo $_GET["pagina"];?>">
-    <div><select name="genero">
-        <option value="ninguno">Categorías:</option>
-        <option value="accion">Accion</option>
-        <option value="aventura">Aventura</option>
-        <option value="estrategia">Estrategia</option>
-        <option value="rpg">RPG</option>
-        <option value="casual">Casual</option>
-    </select></div>
-    <div>
-        <input type="submit" value="Mostrar">
-    </div>
-    </form>
 </header>
 <body>
 
     <?php ##Cada página tendrá 30 items para mostrar máximo jsjs 
 
         $productos = new ControllerProducto();
-        $cantidad_productos = $productos -> ControllerContarProductos();
+        $cantidad_productos = $productos -> ControllerContarEquipoProductos();
 
         $paginas = $cantidad_productos / $productos_x_pagina;
         $paginas = ceil($paginas);
-
+           
         if (isset($_POST["orden"])){
             $orden = $_POST["orden"];
             if ($orden=="precio"){
-                $lista = $listar -> ControllerListarProductoPorPrecio($iniciar,$productos_x_pagina);
+                $lista = $listar -> ControllerListarProductoEquipoPorPrecio($iniciar,$productos_x_pagina);
             }else if($orden=="rating"){
-                $lista = $listar -> ControllerListarProductoPorRating($iniciar,$productos_x_pagina);
+                $lista = $listar -> ControllerListarProductoEquipoPorRating($iniciar,$productos_x_pagina);
             }else if($orden=="tienda"){
-                $lista = $listar -> ControllerListarProductoPorTienda($iniciar,$productos_x_pagina);
+                $lista = $listar -> ControllerListarProductoEquipoPorTienda($iniciar,$productos_x_pagina);
             }else{
-                $lista = $listar -> ControllerListarProductoConLimites($iniciar,$productos_x_pagina);
-            }
-        }
-
-        if (isset($_POST["genero"])){
-            $genero = $_POST["genero"];
-            if ($genero=="ninguno"){
-                $lista = $listar -> ControllerListarProducto($iniciar,$productos_x_pagina);
-            }else{
-                $lista = $listar -> ControllerListarProductoPorGenero($iniciar,$productos_x_pagina,$genero);
+                $lista = $listar -> ControllerListarProductoEquipoConLimites($iniciar,$productos_x_pagina);
             }
         }
 
         if(!$_GET){
-            header('Location:categorizacion_producto.php?pagina=1');
+            header('Location:busqueda_equipo.php?pagina=1');
         }
 
         if($_GET['pagina'] > $paginas || $_GET['pagina'] <= 0){
-            header('Location:categorizacion_producto.php?pagina=1');
+            header('Location:busqueda_equipo.php?pagina=1');
         }
     ?>
 
@@ -129,18 +107,18 @@
 <footer></footer>
 
 <table class="paginacion">
-    <td><a href="categorizacion_producto.php?pagina=<?php echo $_GET['pagina']-1?>"><<</a></td>
+    <td><a href="busqueda_equipo.php?pagina=<?php echo $_GET['pagina']-1?>"><<</a></td>
 
 <?php  for($i=0;$i<$paginas;$i++): ?>
     
-    <td><a href="categorizacion_producto.php?pagina=<?php echo $i+1; ?>">
+    <td><a href="busqueda_equipo.php?pagina=<?php echo $i+1; ?>">
 
     <?php echo $i+1; ?>
 
     </a></td>
 
 <?php endfor ?>
-    <td><a href="categorizacion_producto.php?pagina=<?php echo $_GET['pagina']+1?>">>></a></td>
+    <td><a href="busqueda_equipo.php?pagina=<?php echo $_GET['pagina']+1?>">>></a></td>
 </table>
 
 </html>

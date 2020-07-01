@@ -28,7 +28,7 @@
     <div class="elcabecera">
     <div class="cabecera"><a href="nosotros.php">Sobre nosotros</a></div>
     <div class="cabecera"><a href="busqueda.php">Videojuegos</a></div>
-    <div class="cabecera"><a href="busqueda.php">Equipos</a></div>
+    <div class="cabecera"><a href="busqueda_equipo.php">Equipos</a></div>
     </div> 
     <nav>
         <form method="get" action="busqueda_producto.php">

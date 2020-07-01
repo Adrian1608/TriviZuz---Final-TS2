@@ -31,10 +31,28 @@ class ControllerProducto{
         }
     }
 
+    public function ControllerContarEquipoProductos(){
+        try{
+            $objeto = new ModelProducto();
+            return $objeto -> ModelContarEquipoProductos();
+        }catch(PDOException $e){
+            throw $e;
+        }
+    }
+
     public function ControllerListarProductoConLimites($inicio,$productos){
         try{
             $objeto = new ModelProducto();
             return $objeto -> ModelListarProductoConLimites($inicio,$productos);
+        }catch(PDOException $e){
+            throw $e;
+        }
+    }
+
+    public function ControllerListarProductoEquipoConLimites($inicio,$productos){
+        try{
+            $objeto = new ModelProducto();
+            return $objeto -> ModelListarProductoEquipoConLimites($inicio,$productos);
         }catch(PDOException $e){
             throw $e;
         }
@@ -75,6 +93,15 @@ class ControllerProducto{
         }
     }
 
+    public function ControllerListarProductoEquipoPorPrecio($inicio,$productos){
+        try{
+            $objeto = new ModelProducto();
+            return $objeto -> ModelListarProductoEquipoPorPrecio($inicio,$productos);
+        }catch(PDOException $e){
+            throw $e;
+        }
+    }
+
     public function ControllerListarProductoPorRating($inicio,$productos){
         try{
             $objeto = new ModelProducto();
@@ -84,10 +111,28 @@ class ControllerProducto{
         }
     }
 
+    public function ControllerListarProductoEquipoPorRating($inicio,$productos){
+        try{
+            $objeto = new ModelProducto();
+            return $objeto -> ModelListarProductoEquipoPorRating($inicio,$productos);
+        }catch(PDOException $e){
+            throw $e;
+        }
+    }
+
     public function ControllerListarProductoPorTienda($inicio,$productos){
         try{
             $objeto = new ModelProducto();
             return $objeto -> ModelListarProductoPorTienda($inicio,$productos);
+        }catch(PDOException $e){
+            throw $e;
+        }
+    }
+
+    public function ControllerListarProductoEquipoPorTienda($inicio,$productos){
+        try{
+            $objeto = new ModelProducto();
+            return $objeto -> ModelListarProductoEquipoPorTienda($inicio,$productos);
         }catch(PDOException $e){
             throw $e;
         }
