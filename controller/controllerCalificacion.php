@@ -12,6 +12,13 @@
             }
         }
 
-        
+        public function ControllerListarCalificacion($id_producto){
+            try{
+                $objeto = new ModelCalificacion();
+                return $objeto -> ModeloRecuCalif($id_producto);
+            }catch(PDOException $e){
+                throw $e;
+            }
+        }
     }
 ?>

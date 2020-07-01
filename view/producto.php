@@ -3,6 +3,7 @@
     include_once"../controller/controllerCliente.php";
     include_once"../controller/controllerTienda.php";
     include_once"../controller/controllerPedido.php";
+    include_once"../controller/controllerCalificacion.php";
     $objproducto = new ControllerProducto();
     $listar = $objproducto->ControllerDatosProducto($_GET["id"]);
 
@@ -64,19 +65,35 @@
     <article id="cont">
         <article id="top_pro">
             <article id="calificacion">
+                <?php
+                    $objcalf = new ControllerCalificacion();
+                    $listacalf = $objcalf->ControllerListarCalificacion($_GET["id"]);
+                    $count1 = 0;
+                    $sum = 0;
+                    $prom = 0;
+                    foreach($listacalf as $list){
+                        $sum = $sum + $list[2]; 
+                        $count1 = $count1 + 1;
+                    }
+                    if ($count1!=0) {
+                        $prom = $sum/$count1;
+                    }
+                    
+
+                ?>
                 <form action="../controller/controllerRegistarCalificacion.php" method="post">
                     <p id="titu_clas">Clasificación:</p>
                     <input type="hidden" name="id_producto" value="<?php echo $_GET["id"]?>">
                     <p class="clasi">
-                            <input id="radio1" type="radio" name="estrellas" value="5">
+                            <input id="radio1" type="radio" name="estrellas" value="5" <?php if ($prom==5) {echo "checked";} ?>>
                             <label class="titu" id="pop" for="radio1">★</label>
-                            <input id="radio2" type="radio" name="estrellas" value="4">
+                            <input id="radio2" type="radio" name="estrellas" value="4" <?php if ($prom==4) {echo "checked";} ?>>
                             <label class="titu" for="radio2">★</label>
-                            <input id="radio3" type="radio" name="estrellas" value="3">
+                            <input id="radio3" type="radio" name="estrellas" value="3" <?php if ($prom==3) {echo "checked";} ?>>
                             <label class="titu" for="radio3">★</label>
-                            <input id="radio4" type="radio" name="estrellas" value="2">
+                            <input id="radio4" type="radio" name="estrellas" value="2" <?php if ($prom==2) {echo "checked";} ?>>
                             <label class="titu" for="radio4">★</label>
-                            <input id="radio5" type="radio" name="estrellas" value="1">
+                            <input id="radio5" type="radio" name="estrellas" value="1" <?php if ($prom==1) {echo "checked";} ?>>
                             <label class="titu"  for="radio5">★</label>
                     </p>
                     <input id="filtrar" type="submit" value="Enviar">
@@ -107,15 +124,18 @@
                         throw $e;
                     }
                     $aux = 1;
-                    if ($comen != null and $aux<=3) {
-                        foreach($comen as $fila) { ?>
-                            <p class="pro" id="nameuse1"><?php 
-                                $usercomen = $objuser -> ControllerBuscarCliente($fila[1]);
-                                echo $usercomen[0][1]." ".$usercomen[0][2];
-                            ?></p>
-                            <p class="pro" id="comen1"><textarea name="comentario1" id="" cols="50" rows="3" readonly><?php echo $fila[0]?></textarea></p>
-                        <?php
-                        $aux = $aux + 1;
+                    if ($comen != null) {
+                        foreach($comen as $fila) { 
+                            if ($aux<=3){
+                            ?>
+                                <p class="pro" id="nameuse1"><?php 
+                                    $usercomen = $objuser -> ControllerBuscarCliente($fila[1]);
+                                    echo $usercomen[0][1]." ".$usercomen[0][2];
+                                ?></p>
+                                <p class="pro" id="comen1"><textarea name="comentario1" id="" cols="50" rows="3" readonly><?php echo $fila[0]?></textarea></p>
+                            <?php
+                                 $aux = $aux + 1;
+                            }
                         }
                     } else { ?>
                         <p id="nameuse2">No hay comentarios</p>
