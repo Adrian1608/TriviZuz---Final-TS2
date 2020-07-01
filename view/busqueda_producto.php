@@ -7,18 +7,8 @@
 <head>
 <?php
     $productos_x_pagina = 20;
-
 ?>
     <title>Buscando en 3VZUZ</title>
-
-    <?php
-
-    $iniciar = ($_GET['pagina']-1)*$productos_x_pagina;
-
-    $listar = new ControllerProducto();
-    $lista = $listar -> ControllerListarProductoConLimites($iniciar,$productos_x_pagina);
-    $listas = $listar -> ControllerListarProducto();
-    ?>
 
     <link rel="icon" href="../img/3vzuz icono.ico">
 </head>
@@ -31,8 +21,16 @@
     <div class="cabecera"><a href="busqueda.php">Equipos</a></div>
     </div> 
     <nav>
+        <?php
+            $la_busqueda = strtolower($_REQUEST["la_busqueda"]);
+
+            if(empty($la_busqueda)){
+                header('Location:busqueda.php');
+            }
+
+        ?>
         <form method="get" action="busqueda_producto.php">
-            <input class="busqueda" type="text" placeholder="Buscar..." name="la_busqueda">
+            <input class="busqueda" type="text" placeholder="Buscar..." name="la_busqueda" value="<?php echo $la_busqueda;?>">
             <input type="submit" value="Buscar">
         </form>
     </nav>
@@ -42,10 +40,10 @@
             <input type="password" placeholder="Contraseña" name="contraseña">
     </div>
     <div>
-        <button type="submit" value="ingreso">Ingresar</button>
+        <input type="submit" value="Ingresar">
         </form>
         <form method="post" action="registrar.php">
-        <button type="submit" value="registrar">Registrarse</button>
+        <input type="submit" value="Registrarse">
         </form>
     </div>
 </header>
@@ -78,21 +76,17 @@
 </header>
 <body>
 
-    <?php ##Cada página tendrá 30 items para mostrar máximo jsjs 
+    <?php ##Cada página tendrá 20 items para mostrar máximo jsjs 
 
         $productos = new ControllerProducto();
         $cantidad_productos = $productos -> ControllerContarProductos();
 
         $paginas = $cantidad_productos / $productos_x_pagina;
         $paginas = ceil($paginas);
-           
-        if(!$_GET){
-            header('Location:busqueda.php?pagina=1');
-        }
 
-        if($_GET['pagina'] > $paginas || $_GET['pagina'] <= 0){
-            header('Location:busqueda.php?pagina=1');
-        }
+        $listar = new ControllerProducto();
+        $listas = $listar -> ControllerBuscarProducto($la_busqueda);
+
     ?>
 
     <?php

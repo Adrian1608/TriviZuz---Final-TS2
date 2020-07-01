@@ -44,7 +44,7 @@ class ControllerProducto{
         try {
             $obj=new modelProducto();
             return $obj->DatosProductoModelo($id);
-        } catch (Exception $e) {
+        } catch (PDOException $e) {
             throw $e;
         }
     }
@@ -52,7 +52,34 @@ class ControllerProducto{
         try {
             $obj=new modelProducto();
             return $obj->DatosProductoComentarioModelo($id);
-        } catch (Exception $e) {
+        } catch (PDOException $e) {
+            throw $e;
+        }
+    }
+
+    public function ControllerBuscarProducto($busqueda){
+        try{
+            $objeto = new ModelProducto();
+            return $objeto -> ModelBuscarProducto($busqueda);
+        }catch(PDOException $e){
+            throw $e;
+        }
+    }
+
+    public function ControllerListarProductoPorPrecio(){
+        try{
+            $objeto = new ModelProducto();
+            return $objeto -> ModelListarProductoPorPrecio();
+        }catch(PDOException $e){
+            throw $e;
+        }
+    }
+
+    public function ControllerListarProductoPorGenero(){
+        try{
+            $objeto = new ModelProducto();
+            return $objeto -> ModelListarProductoPorGenero();
+        }catch(PDOException $e){
             throw $e;
         }
     }

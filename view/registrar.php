@@ -9,7 +9,7 @@ if(isset($_POST["busqueda"])){
 ?>
 
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="../css/estilos.css">
+<link rel="stylesheet" type="text/css" href="../css/estilos_busqueda.css">
 <head>
 
     <title>Buscando en Trivizuz<?php echo $busqueda;?> </title>
