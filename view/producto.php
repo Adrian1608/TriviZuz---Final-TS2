@@ -85,15 +85,15 @@
                     <p id="titu_clas">Clasificación:</p>
                     <input type="hidden" name="id_producto" value="<?php echo $_GET["id"]?>">
                     <p class="clasi">
-                            <input id="radio1" type="radio" name="estrellas" value="5" <?php if ($prom==5) {echo "checked";} ?>>
+                            <input id="radio1" type="radio" name="estrellas" value="5" <?php if ($prom>=5) {echo "checked";} ?>>
                             <label class="titu" id="pop" for="radio1">★</label>
-                            <input id="radio2" type="radio" name="estrellas" value="4" <?php if ($prom==4) {echo "checked";} ?>>
+                            <input id="radio2" type="radio" name="estrellas" value="4" <?php if ($prom<=4 and $prom>3) {echo "checked";} ?>>
                             <label class="titu" for="radio2">★</label>
-                            <input id="radio3" type="radio" name="estrellas" value="3" <?php if ($prom==3) {echo "checked";} ?>>
+                            <input id="radio3" type="radio" name="estrellas" value="3" <?php if ($prom<=3 and $prom>2) {echo "checked";} ?>>
                             <label class="titu" for="radio3">★</label>
-                            <input id="radio4" type="radio" name="estrellas" value="2" <?php if ($prom==2) {echo "checked";} ?>>
+                            <input id="radio4" type="radio" name="estrellas" value="2" <?php if ($prom<=2 and $prom>1) {echo "checked";} ?>>
                             <label class="titu" for="radio4">★</label>
-                            <input id="radio5" type="radio" name="estrellas" value="1" <?php if ($prom==1) {echo "checked";} ?>>
+                            <input id="radio5" type="radio" name="estrellas" value="1" <?php if ($prom<=1 and $prom>0) {echo "checked";} ?>>
                             <label class="titu"  for="radio5">★</label>
                     </p>
                     <input id="filtrar" type="submit" value="Enviar">
