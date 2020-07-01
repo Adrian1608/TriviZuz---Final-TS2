@@ -96,6 +96,45 @@ class ModelProducto{
             throw $e;
         }
     }
+
+    public function ModelBuscarProducto($busqueda){
+        try{
+            $objeto = Conexion::singleton();
+            $query = $objeto -> prepare("SELECT * FROM producto WHERE (nombre_producto LIKE '%$busqueda%' OR descripcion_producto LIKE '%$busqueda%')");
+            $query -> execute();
+            $vector = $query->fetchAll();
+            $query = null;
+            return $vector;
+        }catch(PDOException $e){
+            throw $e;
+        }
+    }
+
+    public function ModelListarProductoPorPrecio(){
+        try{
+            $objeto = Conexion::singleton();
+            $query = $objeto -> prepare('SELECT * FROM producto ORDER BY precio_producto');
+            $query -> execute();
+            $vector = $query->fetchAll();
+            $query = null;
+            return $vector;
+        }catch(PDOException $e){
+            throw $e;
+        }
+    }
+
+    public function ModelListarProductoPorGenero(){
+        try{
+            $objeto = Conexion::singleton();
+            $query = $objeto -> prepare('SELECT * FROM producto ORDER BY genero_producto');
+            $query -> execute();
+            $vector = $query->fetchAll();
+            $query = null;
+            return $vector;
+        }catch(PDOException $e){
+            throw $e;
+        }
+    }
 }
 
 ?>
