@@ -12,7 +12,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trivizus: Sobre Nosotros</title>
+    <title>Trivizus: <?php echo $listar[0][1]?></title>
     <link rel="icon" href="../img/3vzuz_logo.png">
     <link rel="stylesheet" type="text/css" href="../css/estilos_productos.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> 
@@ -83,6 +83,7 @@
                 </form>
             </article>
             <article id="precio">
+                <form action="web_tienda.php?id=<?php echo $_GET["id"]?>" method="post" target="_blank">
                     <p id="titu_pre">Precio:</p>
                     <p id="precio">
                         <?php
@@ -91,6 +92,8 @@
                             echo "S/. ".$pro2[0][2];                        
                             ?>
                     </p>
+                    <input id="comprar" type="submit" value="Comprar">
+                </form>
             </article>
             <article id="com_users">
                 <p id="titu_comen_use">Comentarios de usuarios:</p>

@@ -443,3 +443,26 @@ input#mostar2{
     background-color: black;
     color: white;
 }
+input#comprar{ 
+    color: rgb(0, 0, 0);
+    position: absolute;
+    margin-right: 39%;
+    margin-top: 70%;
+    right: 0;
+    padding: 5px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    border: none;
+    border-color: #000000;
+    border-style: solid;
+    border-radius: 5px;
+    color: black;
+    background-color: #f1f1f1;
+    font-family:Verdana,Geneva, Tahoma, sans-serif;
+}
+#comprar:hover{ 
+    background-color: black;
+    color: white;
+}

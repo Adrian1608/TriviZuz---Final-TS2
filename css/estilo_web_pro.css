@@ -1,0 +1,27 @@
+section#cont1{
+    position:relative;
+	margin:1% auto;
+	width:auto;
+    height:700px;
+    border-style: groove;
+    border-color: rgb(212, 14, 14);
+}
+p#titu{
+    font-size: 200%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+}
+img#img1 {
+    border-radius: 5%;
+}
+p.cap {
+    font-size: 25px;
+    width: 45%;
+    margin-left: 3.5%;
+    text-align: justify;
+    font-family: Verdana, Geneva, Tahoma, sans-serif, Tahoma, Geneva, Verdana, sans-serif;
+}
+p#img3{
+    position: absolute;
+    right: 4%;
+}
