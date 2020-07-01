@@ -10,7 +10,7 @@ class ModelPedido{
     public function ModelContarProductoPedido($id_producto){
         try{
             $objeto = Conexion::singleton();
-            $query = $objeto -> prepare('SELECT * FROM detalle_pedido where id_producto=¨?');
+            $query = $objeto -> prepare('SELECT * FROM detalle_pedido where id_producto=?');
             $query -> bindParam(1, $id_producto);
             $query->execute();
             $vector = $query->fetchAll();

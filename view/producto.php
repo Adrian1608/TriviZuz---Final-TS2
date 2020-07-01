@@ -144,6 +144,8 @@
                     echo "\nDirección: ".$dato[0][2]."\n";
                     echo "\n";
                     echo "\nTelefono: ".$dato[0][3]."\n";
+                    echo "\n";
+                    echo "\nValorado por la critica con: ".$pro[0][4]." puntos.\n";
                 ?>        
             </textarea></p>
         </article>
